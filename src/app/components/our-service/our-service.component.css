@@ -1,0 +1,45 @@
+.linea {
+    display: flex;
+    align-items: flex-start;  /* 'auto' no es válido aquí, usa flex-start */
+    justify-content: center;
+    gap: 30px;
+    margin-top: 15px;
+    flex-wrap: wrap;          /* Permite que bajen en pantallas pequeñas */
+}
+
+/* A los elementos hijos de .linea */
+.linea > * {
+    width: 30%;               /* 3 en línea en pantallas grandes */
+    min-width: 200px;         /* Evita que se encojan demasiado */
+    box-sizing: border-box;   /* Incluye padding en el tamaño */
+    min-height: 500px;
+}
+.btn{
+    background-color: green;
+    border-color: green;
+
+}
+.card img{
+    max-height: 310px;
+}
+/* Responsividad para tablets */
+@media (max-width: 760px) {
+    .linea > * {
+        width: 45%;           /* 2 en línea en pantallas medianas */
+        min-height: 425px;
+    }
+    .card img{
+        max-height: 300px;
+    }
+}
+
+/* Responsividad para móviles */
+@media (max-width: 759px) {
+    .linea > * {
+        width: 40%;           /* 1 en línea en pantallas pequeñas */
+        min-height: 415px;
+    }
+    .card img{
+        max-height: 200px;
+    }
+}
