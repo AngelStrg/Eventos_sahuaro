@@ -7,7 +7,8 @@ import { OurServiceComponent } from './components/our-service/our-service.compon
 
 @Component({
   selector: 'app-root',
-  imports: [NavBarComponent, FooterComponent, CarouselComponent, RouterOutlet, OurServiceComponent],
+  imports: [NavBarComponent, FooterComponent, CarouselComponent, RouterOutlet, 
+    OurServiceComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
