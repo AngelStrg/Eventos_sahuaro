@@ -1,28 +1,34 @@
-.navbar-brand{
-    margin: auto;
-    font-size: 30px;
-    font-style: normal;
-    color: #84b64f;
-}
 .navbar {
-    border: 2px solid #84b64f; /* Grosor, tipo de línea y color */
-    padding: 2px;            /* Espacio interno */
+    border: 2px solid #84b64f;
+    /* Grosor, tipo de línea y color */
+    padding: 2px;
+    /* Espacio interno */
     margin: 5px auto;
-    border-radius:  15px;     /* Bordes redondeados */  
+    border-radius: 15px;
+    /* Bordes redondeados */
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
 }
 
+.navbar-brand {
+    font-family: "Dancing Script", cursive;
+    font-optical-sizing: auto;
+    font-style: normal;
+    margin: auto;
+    font-size: 30px;
+    color: #84b64f;
+}
+
 @media (max-width: 768px) {
-        .navbar-brand {
+    .navbar-brand {
         font-size: 25px;
     }
 }
 
 @media (max-width: 480px) {
-        .navbar-brand {
+    .navbar-brand {
         font-size: 20px;
     }
 }
