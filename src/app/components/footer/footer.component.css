@@ -1,7 +1,6 @@
-.container{
-    background-color: #000000;
-    color : #ffffff;
-    border: 2px solid black; /* Grosor, tipo de línea y color */
-    padding: flex;            /* Espacio interno */
-    margin: 5px; 
+.footer {
+    background-color: black;
+    color: #ffffff;
+    margin-top: 120px;
+    padding: 100px;
 }

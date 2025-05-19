@@ -1,0 +1,16 @@
+#location{
+    color: #000000;
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 20px;
+}
+
+#map{
+    width: 800px;
+    height: 500px;
+    margin-top: 20px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
