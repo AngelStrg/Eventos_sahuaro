@@ -1,7 +1,6 @@
 .container{
-    background-color: #000000;
+    background-color: black;
     color : #ffffff;
     border: 2px solid black; /* Grosor, tipo de línea y color */
     padding: flex;            /* Espacio interno */
-    margin: 5px; 
 }
