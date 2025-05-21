@@ -12,21 +12,31 @@
 }
 
 .map iframe{
-    width: 80%;
+    width: 60%;
     height: auto;
     aspect-ratio: 16/9;
     border: 0;
-    margin-left:10%;
+    margin-left:20%;
 }
 
 #text{
     color: #000000;
-text-align: left;
+text-align: justify;
     font-size: 20px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    margin-left:40px;
-    margin-right: 40px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left:10%;
+    margin-right: 10%;
 }
+
+#title{
+    color: #000000;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: left;
+    margin-top: 10px;
+}
+
+
 
 
