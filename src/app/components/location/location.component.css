@@ -7,10 +7,26 @@
 }
 
 #map{
-    width: 800px;
-    height: 500px;
-    margin-top: 20px;
-    align-items: center;
-    display: flex;
-    justify-content: center;
+    margin: 20px auto;
+    max-width: 100%;
 }
+
+.map iframe{
+    width: 80%;
+    height: auto;
+    aspect-ratio: 16/9;
+    border: 0;
+    margin-left:10%;
+}
+
+#text{
+    color: #000000;
+text-align: left;
+    font-size: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left:40px;
+    margin-right: 40px;
+}
+
+
