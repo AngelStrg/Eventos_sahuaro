@@ -20,6 +20,7 @@
     font-size: 35px;
     font-weight: 900;
     color: #84b64f;
+    text-align: center;
 
 }
 
@@ -33,4 +34,25 @@
     .navbar-brand {
         font-size: 20px;
     }
+}
+
+.btn-cotizar{
+    background-color: #84b64f;
+    color: white;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    margin-right: 10px;
+}
+
+.btn-reservar{
+    background-color: #6a9b3f;
+    color: white;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
 }
