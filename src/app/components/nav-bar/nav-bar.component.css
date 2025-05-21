@@ -17,8 +17,10 @@
     font-optical-sizing: auto;
     font-style: normal;
     margin: auto;
-    font-size: 30px;
+    font-size: 35px;
+    font-weight: 700;
     color: #84b64f;
+
 }
 
 @media (max-width: 768px) {
