@@ -16,17 +16,17 @@
     font-family: "Dancing Script", cursive;
     font-optical-sizing: auto;
     font-style: normal;
-    margin: auto;
+    margin-left: 100px;
     font-size: 35px;
     font-weight: 900;
     color: #84b64f;
     text-align: center;
-
 }
 
 @media (max-width: 768px) {
     .navbar-brand {
         font-size: 25px;
+        margin-left: 50px;
     }
 }
 
@@ -36,23 +36,13 @@
     }
 }
 
-.btn-cotizar{
+.btn-contact{
     background-color: #84b64f;
     color: white;
     border-radius: 10px;
-    padding: 10px 20px;
+    padding: 10px;
     font-size: 16px;
     font-weight: bold;
     border: none;
-    margin-right: 10px;
 }
 
-.btn-reservar{
-    background-color: #6a9b3f;
-    color: white;
-    border-radius: 10px;
-    padding: 10px 20px;
-    font-size: 16px;
-    font-weight: bold;
-    border: none;
-}
