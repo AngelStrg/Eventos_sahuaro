@@ -1,1 +1,118 @@
-<p>reservation works!</p>
+<app-nav-bar></app-nav-bar>
+<div class="form-container">
+  <h2>Reservación de Evento</h2>
+
+  <form>
+    <label>Nombre completo:
+      <input type="text" [(ngModel)]="nombre" name="nombre" required />
+    </label>
+
+    <label>Correo electrónico:
+      <input type="email" [(ngModel)]="correo" name="correo" required />
+    </label>
+
+    <label>Teléfono:
+      <input type="tel" [(ngModel)]="telefono" name="telefono" required pattern="[0-9]{10}" />
+    </label>
+
+    <label>Fecha del evento:
+      <input type="date" [(ngModel)]="fecha" name="fecha" required />
+    </label>
+
+    <label>Número de personas:
+      <select [(ngModel)]="personas" name="personas" required>
+        <option value="1-25">1 - 25 personas</option>
+        <option value="26-50">26 - 50 personas</option>
+        <option value="51-75">51 - 75 personas</option>
+        <option value="76-100">76 - 100 personas</option>
+        <option value="101-150">101 - 150 personas</option>
+      </select>
+    </label>
+
+    <label>Tipo de evento:
+      <select [(ngModel)]="tipoEvento" name="tipoEvento" required>
+        <option value="Boda">Boda</option>
+        <option value="Bautizo">Bautizo</option>
+        <option value="Cumpleaños">Cumpleaños</option>
+        <option value="Graduación">Graduación</option>
+        <option value="XV Años">XV Años</option>
+        <option value="Otro">Otro</option>
+      </select>
+    </label>
+
+    <label>¿Con alberca?
+      <select [(ngModel)]="alberca" name="alberca" required>
+        <option value="Con alberca">Con alberca</option>
+        <option value="Sin alberca">Sin alberca</option>
+      </select>
+    </label>
+
+    <label>Hora de inicio:
+      <input
+        type="time"
+        [(ngModel)]="horaInicio"
+        name="horaInicio"
+        step="3600"
+        (ngModelChange)="actualizarHoraFin()"
+        required
+      />
+    </label>
+
+    <label>Hora de fin (6 horas después, máx 2 AM):
+      <input type="time" [(ngModel)]="horaFin" name="horaFin" readonly />
+    </label>
+
+    <label>
+      Color de cubre mantel:
+      <div class="color-selector-wrapper">
+        <div class="color-box" [style.backgroundColor]="colorMantel"></div>
+        <select [(ngModel)]="colorMantel" name="colorMantel" required>
+          <option value="#ff0000">Rojo</option>
+          <option value="#0000ff">Azul</option>
+          <option value="#00cc00">Verde</option>
+          <option value="#ffff00">Amarillo</option>
+          <option value="#ffc0cb">Rosa</option>
+          <option value="#800080">Morado</option>
+          <option value="#ffa500">Naranja</option>
+          <option value="#ffffff">Blanco</option>
+          <option value="#808080">Gris</option>
+          <option value="#000000">Negro</option>
+        </select>
+      </div>
+    </label>
+
+    <fieldset class="extras">
+      <legend>Servicios extra</legend>
+      <label>
+        <input
+          type="checkbox"
+          (change)="toggleExtra('Inflable Rosa', $event)"
+          name="extras"
+          value="Inflable Rosa"
+        />
+        Inflable Rosa
+      </label>
+      <label>
+        <input
+          type="checkbox"
+          (change)="toggleExtra('Inflable Rojo', $event)"
+          name="extras"
+          value="Inflable Rojo"
+        />
+        Inflable Rojo
+      </label>
+      <label>
+        <input
+          type="checkbox"
+          (change)="toggleExtra('Palomera', $event)"
+          name="extras"
+          value="Palomera"
+        />
+        Palomera
+      </label>
+    </fieldset>
+
+    <button type="submit">Enviar</button>
+  </form>
+</div>
+
