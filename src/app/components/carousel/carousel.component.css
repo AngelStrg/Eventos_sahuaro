@@ -31,6 +31,7 @@ body, html {
     object-fit: cover;
     display: block;
     border-radius: 15px;
+    margin-top: 160px;
 }
 
 /* Responsive */
