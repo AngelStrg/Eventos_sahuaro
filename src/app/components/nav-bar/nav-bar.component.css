@@ -1,35 +1,6 @@
-.navbar {
-    border: 2px solid #84b64f;
-    /* Grosor, tipo de línea y color */
-    padding: 2px;
-    /* Espacio interno */
-    margin: 5px auto;
-    border-radius: 15px;
-    /* Bordes redondeados */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-}
-
-.navbar-brand {
-
-    margin-left: 100px;
-    font-size: 28px;
-    color: #84b64f;
-    text-align: center;
-    font-family: "Ultra", serif;
-    font-weight:900;
-    font-style: normal;
-}
-
-
-
-
 @media (max-width: 768px) {
     .navbar-brand {
         font-size: 25px;
-        margin-left: 50px;
     }
 }
 
@@ -39,12 +10,32 @@
     }
 }
 
-.btn-contact {
+.navbar{
+    background-color: #fff;
+    border-radius: 20px;
+}
+
+.container-fluid{
+    background-color: #fff;
+}
+
+.collapse{
+    background-color: #fff;
+}
+
+.nav-link:hover {
     background-color: #84b64f;
     color: white;
-    border-radius: 10px;
-    padding: 10px;
+    border-radius: 15px;
     font-size: 16px;
-    font-weight: bold;
-    border: none;
+}
+
+.nav-link{
+    margin-left: 25px;
+    padding: 10px;
+}
+
+.line{
+    color: #000;
+    font-size:larger;
 }
