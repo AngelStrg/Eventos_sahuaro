@@ -25,9 +25,9 @@
 </div>
 
 <section class=" si container">
-  <button class="buttons">Cotiza</button>
-  <button class="buttons">Reserva</button>
-  <button class="buttons">Cita Presencial</button>
+  <button [routerLink]="['/app-budget']" routerLinkActive="router-link-active" class="buttons">Cotiza</button>
+  <button [routerLink]="['/app-reservation']" routerLinkActive="router-link-active"  class="buttons">Reserva</button>
+  <button [routerLink]="['/app-inperson-reservation']" routerLinkActive="router-link-active" class="buttons">Cita Presencial</button>
 </section>
   
 

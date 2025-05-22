@@ -8,7 +8,7 @@ import { NavBarComponent } from '../nav-bar/nav-bar.component';
   templateUrl: './location.component.html',
   styleUrls: ['./location.component.css'],
   standalone: true,
-  imports: [CommonModule, BaseServiceComponent, NavBarComponent],
+  imports: [CommonModule, NavBarComponent],
 })
 export class LocationComponent implements AfterViewInit {
   @ViewChild('baseServiceRef') baseServiceComponent!: BaseServiceComponent;
