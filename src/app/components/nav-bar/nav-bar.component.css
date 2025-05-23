@@ -1,29 +1,20 @@
-html, body{
-    background-color: #fff;
-}
+
 @media (max-width: 768px) {
-    .navbar-brand {
-        font-size: 25px;
-    }
+   
 }
 
 @media (max-width: 480px) {
-    .navbar-brand {
-        font-size: 20px;
-    }
+    
+}
+
+.logo {
+    width: 130px;
+    height: 130px;
 }
 
 .navbar{
-    background-color: #fff;
     border-radius: 20px;
-}
-
-.container-fluid{
-    background-color: #fff;
-}
-
-.collapse{
-    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .nav-link:hover {
@@ -36,6 +27,7 @@ html, body{
 .nav-link{
     margin-left: 25px;
     padding: 10px;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 .line{
