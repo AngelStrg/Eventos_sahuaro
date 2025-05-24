@@ -1,48 +1,36 @@
-.navbar {
-    border: 2px solid #84b64f;
-    /* Grosor, tipo de línea y color */
-    padding: 2px;
-    /* Espacio interno */
-    margin: 5px auto;
-    border-radius: 15px;
-    /* Bordes redondeados */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-}
-
-.navbar-brand {
-    font-family: "Dancing Script", cursive;
-    font-optical-sizing: auto;
-    font-style: normal;
-    margin-left: 100px;
-    font-size: 35px;
-    font-weight: 900;
-    color: #84b64f;
-    text-align: center;
-}
 
 @media (max-width: 768px) {
-    .navbar-brand {
-        font-size: 25px;
-        margin-left: 50px;
-    }
+   
 }
 
 @media (max-width: 480px) {
-    .navbar-brand {
-        font-size: 20px;
-    }
+    
 }
 
-.btn-contact{
+.logo {
+    width: 130px;
+    height: 130px;
+}
+
+.navbar{
+    border-radius: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.nav-link:hover {
     background-color: #84b64f;
     color: white;
-    border-radius: 10px;
-    padding: 10px;
+    border-radius: 15px;
     font-size: 16px;
-    font-weight: bold;
-    border: none;
 }
 
+.nav-link{
+    margin-left: 25px;
+    padding: 10px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.line{
+    color: #000;
+    font-size:larger;
+}
