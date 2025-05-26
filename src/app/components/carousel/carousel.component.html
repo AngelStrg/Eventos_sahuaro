@@ -1,16 +1,19 @@
 <link rel = "stylesheet" href="carousel.component.css">
 
 <div class="carousel-wrapper container-fluid">
-  <div id="carouselExampleRide" class="carousel slide" data-bs-ride="true">
+  <div id="carouselExampleRide" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img src="Carousel-1.jpg" alt="..." />
+        <img src="Carousel_1.JPG" alt="..." />
       </div>
       <div class="carousel-item">
-        <img src="https://elnoti.com/wp-content/uploads/2016/04/Los-lugares-m%C3%A1s-bellos-del-planeta.jpg" alt="..." />
+        <img src="Carousel_2.JPG" alt="..." />
       </div>
       <div class="carousel-item">
-        <img src="https://th.bing.com/th/id/R.f1a0ea2d973f7d9ac77dcd5731cfdc2c?rik=0qdbxOY0TkPUSQ&pid=ImgRaw&r=0" alt="..." />
+        <img src="Carousel_3.JPG" alt="..." />
+      </div>
+            <div class="carousel-item">
+        <img src="Carousel_4.JPG" alt="..." />
       </div>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleRide" data-bs-slide="prev">
@@ -23,3 +26,10 @@
     </button>
   </div>
 </div>
+
+<section class=" si container">
+  <button [routerLink]="['/app-budget']" routerLinkActive="router-link-active" class="buttons">Cotiza</button>
+  <button [routerLink]="['/app-reservation']" routerLinkActive="router-link-active"  class="buttons">Reserva</button>
+</section>
+  
+

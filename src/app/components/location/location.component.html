@@ -1,4 +1,31 @@
-<h2 id="location">Conoce nuestra ubicación</h2>
+
+<app-nav-bar></app-nav-bar>
+<h2 id="location">Nuestra ubicación</h2>
+
 <div id="map" class="map">
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3644.311286802175!2d-104.60179312482765!3d24.020085678487348!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x869bb7bd7af7e781%3A0xec05e86de4173c59!2sEVENTOS%20SAHUARO!5e0!3m2!1ses!2smx!4v1747164526774!5m2!1ses!2smx" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3644.311286802175!2d-104.60179312482765!3d24.020085678487348!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x869bb7bd7af7e781%3A0xec05e86de4173c59!2sEVENTOS%20SAHUARO!5e0!3m2!1ses!2smx!4v1747164526774!5m2!1ses!2smx" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 </div>
+<button [routerLink]="['/app-budget']" routerLinkActive="router-link-active" class="buttons">Cotiza</button>
+<div id="text">
+   <p> Ubicados en Calle Nube, Lote 10, Colonia Cielo Azul, C.P. 34287, Durango, Dgo., en Eventos Sahuaro te ofrecemos el espacio perfecto para hacer de tus celebraciones momentos inolvidables.
+Nuestro salón de eventos está diseñado para adaptarse a todo tipo de ocasiones especiales, desde bodas, XV años y graduaciones, hasta reuniones familiares y eventos empresariales.
+Contamos con una ubicación accesible, instalaciones cómodas y un ambiente ideal para disfrutar junto a tus invitados.
+ </p>  
+   
+<p id="title">Horario de atención</p>
+<p style="display: flex; align-items: center; gap: 6px;">
+  <svg xmlns="http://www.w3.org/2000/svg" color="#6D9A45" width="18" height="18" fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
+   <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z"/>
+</svg>
+  lunes a domingo de 8:00 am a 9:00 pm
+</p>
+
+<p id="title">Datos del contacto</p>
+<p>
+  <svg xmlns="http://www.w3.org/2000/svg" color="#6D9A45" width="18" height="18" fill="currentColor" style="vertical-align: middle; margin-right: 4px;" class="bi bi-telephone" viewBox="0 0 16 16">
+   <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z"/>
+</svg>
+  teléfono celular: 618 136 33 63
+</p>
+</div>
+

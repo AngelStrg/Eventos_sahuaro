@@ -3,14 +3,53 @@
     font-size: 28px;
     font-weight: bold;
     text-align: center;
-    margin-top: 20px;
+    margin-top: 170px;
 }
 
 #map{
-    width: 800px;
-    height: 500px;
-    margin-top: 20px;
-    align-items: center;
-    display: flex;
-    justify-content: center;
+    margin: 20px auto;
+    max-width: 100%;
 }
+
+.map iframe{
+    width: 60%;
+    height: auto;
+    aspect-ratio: 16/9;
+    border: 0;
+    margin-top: 147px;
+    margin-left:20%;
+    margin-bottom: 10px;
+}
+
+#text{
+    color: #000000;
+text-align: justify;
+    font-size: 20px;
+    margin-top: 30px;
+    margin-left:10%;
+    margin-right: 10%;
+}
+
+#title{
+    color: #000000;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: left;
+    margin-top: 10px;
+}
+
+.buttons{
+    background-color: #6D9A45;
+    color: white;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none; 
+    margin-left: 45%;
+    width: 15%;
+}
+
+
+
+

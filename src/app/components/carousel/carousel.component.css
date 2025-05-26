@@ -31,6 +31,7 @@ body, html {
     object-fit: cover;
     display: block;
     border-radius: 15px;
+    margin-top: 145px;
 }
 
 /* Responsive */
@@ -44,4 +45,47 @@ body, html {
     .carousel-item img {
         height: 200px;
     }
+}
+
+.buttons{
+    margin-top: 25px;
+    background-color: #84b64f;
+    color: white;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none; 
+    margin-left: 15%;
+    width: 15%;
+}
+
+.si{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    margin-top: 0px;
+    margin-left: 0px;
+    flex-wrap: wrap;  
+}
+
+@media (max-width: 760px) {
+    .si > * {
+        width: 40%;           /* 2 en línea en pantallas medianas */
+        margin-left: 30%;
+    }
+}
+@media (max-width: 759px) {
+    .si > * {
+        width: 30%;           /* 1 en línea en pantallas pequeñas */
+        margin-left: 10px;
+    }
+}
+
+
+/* Responsive for carousel item image */
+@media (max-width: 768px) {
+.carousel-item img {
+    margin-top: 105px;
+}
 }

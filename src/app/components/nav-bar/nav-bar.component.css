@@ -1,34 +1,58 @@
-.navbar {
-    border: 2px solid #84b64f;
-    /* Grosor, tipo de línea y color */
-    padding: 2px;
-    /* Espacio interno */
-    margin: 5px auto;
+
+.logo {
+    width: 130px;
+    height: 130px;
+}
+
+.navbar{
+    border-radius: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    padding: 0;
+}
+
+.nav-link:hover {
+    background-color: #84b64f;
+    color: white;
     border-radius: 15px;
-    /* Bordes redondeados */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
+    font-size: 16px;
 }
 
-.navbar-brand {
-    font-family: "Dancing Script", cursive;
-    font-optical-sizing: auto;
-    font-style: normal;
-    margin: auto;
-    font-size: 30px;
-    color: #84b64f;
+.nav-link{
+    margin-left: 25px;
+    padding: 10px;
+    font-family: 'Times New Roman', Times, serif;
 }
 
+.navbar-toggler-icon {
+  width: 20px;
+  height: 20px;
+}
+
+
+/* Responsive*/
 @media (max-width: 768px) {
-    .navbar-brand {
-        font-size: 25px;
-    }
-}
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 1rem;
+  }
 
-@media (max-width: 480px) {
-    .navbar-brand {
-        font-size: 20px;
-    }
+  .nav-links a {
+    padding: 0.5rem 0;
+    border-top: 1px solid #ddd;
+  }
+
+  #menu-toggle:checked + .hamburger + .nav-links {
+    display: flex;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .logo {
+    height: 90px;
+    width: 90px;
+  }
 }

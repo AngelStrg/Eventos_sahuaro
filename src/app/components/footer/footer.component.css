@@ -1,6 +1,23 @@
 .footer {
     background-color: black;
     color: #ffffff;
-    margin-top: 120px;
-    padding: 100px;
+    margin-top: 60px;
+    padding: 70px;
+}
+.logo{
+    width: 30px;
+    height: 30px;
+}
+
+.text{
+    text-align: justify;
+}
+
+.contacts{
+    text-align: center;
+}
+
+.copy{
+    text-align: center;
+    margin-top: 70px;
 }
