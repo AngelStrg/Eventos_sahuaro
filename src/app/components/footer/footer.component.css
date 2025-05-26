@@ -2,22 +2,29 @@
     background-color: black;
     color: #ffffff;
     margin-top: 60px;
-    padding: 20px;
-}
-.logo{
-    width: 30px;
-    height: 30px;
+    padding: 80px;
 }
 
 .text{
     text-align: justify;
 }
 
-.contacts{
-    text-align: center;
-}
-
 .copy{
     text-align: center;
     margin-top: 70px;
+}
+
+.footer a:hover {
+    color: #84b64f;
+}
+
+.footer a {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 10px;
+}
+
+.contacts{
+    align-items: right;
+    padding-left: 20%;
 }
