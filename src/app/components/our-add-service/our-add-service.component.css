@@ -1,0 +1,108 @@
+svg {
+  width: 22px;
+  /* Ajusta el tamaño del ícono */
+  height: 22px;
+  fill: #4CAF50;
+  /* Cambia el color del ícono */
+  margin-top: 10px;
+  margin-right: 10px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.containersvg {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background-color: #f9f9f9;
+  /* Color de fondo */
+  border-radius: 8px;
+  /* Bordes redondeados */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  /* Sombra */
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background-color: #f9f9f9;
+  /* Color de fondo */
+  border-radius: 8px;
+  /* Bordes redondeados */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  /* Sombra */
+}
+
+.img-container {
+  width: 120;
+  height: 200;
+  max-width: 800px;
+  /* Ancho máximo del contenedor */
+  margin: 0 auto;
+  /* Centrar el contenedor */
+  align-items: right;
+}
+
+/* Contenedor principal */
+.additional-services {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: center;
+  background: #fff;
+  padding: 32px 0;
+}
+.additional-services {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+  background-color: #86A656; /* Fondo negro */
+  color: #fff; /* Texto blanco */
+}
+/* Cada servicio */
+.service {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  width: 700px;
+  max-width: 95vw;
+  padding: 20px;
+}
+
+/* Imagen de cada servicio */
+.service img {
+  width: 240px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-right: 32px;
+  background: #fff;
+}
+
+/* Texto del servicio */
+.service-text {
+  flex: 1;
+  color: #fff;
+}
+
+/* Título del servicio */
+.service-text h4 {
+  margin: 0 0 10px 0;
+  font-size: 22px;
+  color: #4CAF50;
+}
+
+/* Descripción del servicio */
+.service-text p {
+  margin: 0;
+  font-size: 16px;
+  color: #6b6a6a;
+}
