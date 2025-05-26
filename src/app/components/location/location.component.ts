@@ -3,13 +3,14 @@ import { BaseServiceComponent } from '../base-service/base-service.component';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { NavBarComponent } from '../nav-bar/nav-bar.component';
+import { FooterComponent } from '../footer/footer.component';
 
 @Component({
   selector: 'app-location',
   templateUrl: './location.component.html',
   styleUrls: ['./location.component.css'],
   standalone: true,
-  imports: [CommonModule, RouterLink, NavBarComponent],
+  imports: [CommonModule, RouterLink, NavBarComponent, FooterComponent],
 })
 export class LocationComponent implements AfterViewInit {
   @ViewChild('baseServiceRef') baseServiceComponent!: BaseServiceComponent;

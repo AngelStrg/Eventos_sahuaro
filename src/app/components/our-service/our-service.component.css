@@ -5,6 +5,7 @@
     gap: 30px;
     margin-top: 15px;
     flex-wrap: wrap;          /* Permite que bajen en pantallas pequeñas */
+    margin-top: 30px;
 }
 
 /* A los elementos hijos de .linea */
@@ -12,15 +13,32 @@
     width: 30%;               /* 3 en línea en pantallas grandes */
     min-width: 200px;         /* Evita que se encojan demasiado */
     box-sizing: border-box;   /* Incluye padding en el tamaño */
-    min-height: 500px;
+    min-height: 525px;
+    max-height: 525px;
 }
 .btn{
     background-color: green;
     border-color: green;
+
 }
+.card-hover {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+.card-hover:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
 .card img{
     max-height: 310px;
 }
+.card-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #000000;
+    text-align: center;
+}
+
 /* Responsividad para tablets */
 @media (max-width: 760px) {
     .linea > * {
@@ -36,7 +54,7 @@
 @media (max-width: 759px) {
     .linea > * {
         width: 40%;           /* 1 en línea en pantallas pequeñas */
-        min-height: 415px;
+        min-height: 440px;
     }
     .card img{
         max-height: 200px;
