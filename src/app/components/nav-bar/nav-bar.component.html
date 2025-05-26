@@ -1,18 +1,15 @@
 <!DOCTYPE html>
 <html lang="es">
 
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <title>Navbar</title>
 
   <!-- Fuentes -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cookie&family=Dancing+Script:wght@400..700&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cookie&family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
 
   <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -21,7 +18,6 @@
   <link rel="stylesheet" href="nav-bar.component.css">
 
   <style>
-    /* Para separar los enlaces al final */
     @media (min-width: 992px) {
       .navbar-nav-end {
         margin-left: auto;
@@ -44,7 +40,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <!-- Contenido colapsable -->
+      <!-- Contenido del navbar -->
       <div class="collapse navbar-collapse" id="navbarNav">
         <div class="navbar-nav">
           <a class="nav-link" href="#">Inicio</a>
@@ -57,58 +53,39 @@
           <span class="nav-link d-none d-lg-inline disabled">|</span>
           <a class="nav-link" href="#">Sobre Nosotros</a>
         </div>
+      </div>
+    </div>
+  </nav>
 
-        <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
-          <div class="container-fluid">
-            <a [routerLink]="['/']" routerLinkActive="router-link-active" href="#"><img src="logo.png" alt="Logo"
-                class="logo"></a>
+  <!-- Bootstrap Bundle con JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-            <div class="collapse navbar-collapse">
-              <div class="navbar-nav">
-                <a [routerLink]="['/']" routerLinkActive="router-link-active" class="nav-link" href="#">Inicio</a>
-                <a [routerLink]="['/app-budget']" routerLinkActive="router-link-active" class="nav-link"
-                  href="#">Cotiza</a>
-                <a [routerLink]="['/app-reservation']" routerLinkActive="router-link-active" class="nav-link"
-                  href="#">Reserva</a>
-                <a [routerLink]="['/app-inperson-reservation']" routerLinkActive="router-link-active" class="nav-link"
-                  href="#">Cita Presencial</a>
-              </div>
-              <div class="collapse navbar-collapse">
-                <a class="nav-link" href="#" style="margin-left: 63%;">Contáctanos</a>
-                <a class="line" style="margin-left: 1%;"> |</a>
-                <a [routerLink]="['/app-about-us']" routerLinkActive="router-link-active" class="nav-link" href="#"
-                  style="margin-left: 1%;">Sobre Nosotros</a>
-              </div>
-            </div>
-        </nav>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const navbarCollapse = document.querySelector('#navbarNav');
+      const navbarToggler = document.querySelector('.navbar-toggler');
 
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+       // Cerrar el menú si se hace clic fuera de él
+      document.addEventListener('click', function (event) {
+        const isClickInside = navbarCollapse.contains(event.target) || navbarToggler.contains(event.target);
+        if (window.innerWidth < 992 && navbarCollapse.classList.contains('show') && !isClickInside) {
+          const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
+          bsCollapse.hide();
+        }
+      });
 
-          document.addEventListener('DOMContentLoaded', function () {
-            const navbarCollapse = document.querySelector('#navbarNav');
-            const navbarToggler = document.querySelector('.navbar-toggler');
-
-            // Cerrar el menú si se hace clic fuera de él
-            document.addEventListener('click', function (event) {
-              const isClickInside = navbarCollapse.contains(event.target) || navbarToggler.contains(event.target);
-              if (window.innerWidth < 992 && navbarCollapse.classList.contains('show') && !isClickInside) {
-                const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
-                bsCollapse.hide();
-              }
-            });
-
-            // Cerrar el menú al hacer clic en un enlace del navbar
-            const navLinks = navbarCollapse.querySelectorAll('.nav-link');
-            navLinks.forEach(link => {
-              link.addEventListener('click', function () {
-                if (window.innerWidth < 992 && navbarCollapse.classList.contains('show')) {
-                  const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
-                  bsCollapse.hide();
-                }
-              });
-            });
-          });
-        </script>
+      // Cerrar el menú al hacer clic en un enlace del navbar
+      const navLinks = navbarCollapse.querySelectorAll('.nav-link');
+      navLinks.forEach(link => {
+        link.addEventListener('click', function () {
+          if (window.innerWidth < 992 && navbarCollapse.classList.contains('show')) {
+            const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
+            bsCollapse.hide();
+          }
+        });
+      });
+    });
+  </script>
 
 </body>
 
