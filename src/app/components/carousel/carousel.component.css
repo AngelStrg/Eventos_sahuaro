@@ -86,6 +86,6 @@ body, html {
 /* Responsive for carousel item image */
 @media (max-width: 768px) {
 .carousel-item img {
-    margin-top: 120px;
+    margin-top: 105px;
 }
 }
