@@ -1,0 +1,137 @@
+/* Estilo para el contenedor principal */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background-color: #f9f9f9; /* Color de fondo */
+  border-radius: 8px; /* Bordes redondeados */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra */
+}
+.containersvg {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background-color: #f9f9f9; /* Color de fondo */
+  border-radius: 8px; /* Bordes redondeados */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra */
+}
+div {
+  width: 100%;
+  max-width: 800px; /* Ancho máximo del contenedor */
+  margin: 0 auto; /* Centrar el contenedor */
+}
+:host {
+  display: block;
+  position: relative;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain; /* Ajusta el tamaño de la imagen */
+  opacity: 1.5; /* Ajusta la transparencia de la marca de agua */
+}
+
+/* Estilo para el ícono SVG */
+svg {
+  width: 22px; /* Ajusta el tamaño del ícono */
+  height: 22px;
+  fill: #4CAF50; /* Cambia el color del ícono */
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
+/* Estilo para el título */
+h2 {
+  text-align: center;
+  font-size: 26px;
+  color: #4CAF50;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Estilo para la lista */
+ul {
+  list-style: none;
+  padding: 0;
+  position: relative;
+  z-index: 1;
+}
+
+li {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: flex-start;
+}
+
+h4 {
+  margin: 0;
+  font-size: 18px;
+  color: #333;
+  display: flex;
+  align-items: center;
+}
+
+p {
+  margin: 5px 0 0 26px;
+  font-size: 14px;
+  color: #666;
+}
+/* Contenedor principal */
+.services {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+  background-color: #86A656; /* Fondo negro */
+  color: #fff; /* Texto blanco */
+}
+
+/* Cada servicio */
+.service {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 15px;
+  display: flex; /* Flexbox para alinear imagen y texto */
+  align-items: center;
+  width: 850px;
+  height: auto;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+/* Imagen de cada servicio */
+.service img {
+  width: 340px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 0;
+  margin-right: 30px; /* Espacio entre imagen y texto */
+}
+
+/* Contenedor para el texto */
+.service-text {
+  flex: 1;
+  text-align: left;
+}
+
+/* Título del servicio */
+.service h4 {
+  font-size: 22px;
+  margin: 0 0 10px 0;
+  color: #4CAF50;
+  text-align: left;
+}
+
+/* Descripción del servicio */
+.service p {
+  font-size: 16px;
+  color: #6b6a6a;
+  margin: 0;
+  text-align: left;
+}
