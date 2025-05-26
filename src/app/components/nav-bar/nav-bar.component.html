@@ -6,19 +6,19 @@
 
 <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top" >
   <div class="container-fluid">
-    <a href="#"><img src="logo.png" alt="Logo" class="logo"></a>
+    <a [routerLink]="['/']" routerLinkActive="router-link-active" href="#"><img src="logo.png" alt="Logo" class="logo"></a>
     
     <div class="collapse navbar-collapse">
       <div class="navbar-nav">
-        <a class="nav-link" href="#">Inicio</a>
-        <a class="nav-link" href="#">Cotiza</a>
-        <a class="nav-link" href="#">Reserva</a>
-        <a class="nav-link" href="#">Cita Presencial</a>
+        <a [routerLink]="['/']" routerLinkActive="router-link-active"  class="nav-link" href="#">Inicio</a>
+        <a [routerLink]="['/app-budget']" routerLinkActive="router-link-active" class="nav-link" href="#">Cotiza</a>
+        <a [routerLink]="['/app-reservation']" routerLinkActive="router-link-active" class="nav-link" href="#">Reserva</a>
+        <a [routerLink]="['/app-inperson-reservation']" routerLinkActive="router-link-active" class="nav-link" href="#">Cita Presencial</a>
       </div>
       <div class="collapse navbar-collapse">
         <a class="nav-link" href="#" style="margin-left: 63%;">Contáctanos</a>
         <a class="line" style="margin-left: 1%;">  |</a>
-        <a class="nav-link" href="#" style="margin-left: 1%;">Sobre Nosotros</a>
+        <a [routerLink]="['/app-about-us']" routerLinkActive="router-link-active" class="nav-link" href="#" style="margin-left: 1%;">Sobre Nosotros</a>
       </div>
     </div>
   </div>

@@ -9,6 +9,7 @@ import { BasicServicesComponent } from './components/basic-services/basic-servic
 import { ReservationComponent } from './components/reservation/reservation.component';
 import { BudgetComponent } from './components/budget/budget.component';
 import { InpersonReservationComponent } from './components/inperson-reservation/inperson-reservation.component';
+import { AboutUsComponent } from './components/about-us/about-us.component';
 
 export const routes: Routes = [
   { path:'', component: BaseServiceComponent, title: 'Base Service' },
@@ -18,12 +19,15 @@ export const routes: Routes = [
   { path: 'app-reservation', component: ReservationComponent, title: 'Reservation' },
   { path: 'app-inperson-reservation', component: InpersonReservationComponent, title: 'In Person Reservation' },
   { path: 'app-budget', component: BudgetComponent, title: 'Budget' },
+  { path: 'app-about-us', component: AboutUsComponent, title: 'About Us' },
 
 
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {
+    scrollPositionRestoration: 'enabled', anchorScrolling: 'enabled'
+  })],
   exports: [RouterModule]
 })
 export class AppRoutingModule {}
