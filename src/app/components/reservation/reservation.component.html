@@ -2,25 +2,31 @@
 <div class="form-container">
   <h2>Reservación de Evento</h2>
 
-  <form>
+  <form (submit)="enviarFormulario(); $event.preventDefault();">
+
     <label>Nombre completo:
-      <input type="text" [(ngModel)]="nombre" name="nombre" required />
+      <input type="text" [(ngModel)]="nombre" name="nombre" />
     </label>
+    <div class="mensaje-error" *ngIf="errorNombre">{{ errorNombre }}</div>
 
     <label>Correo electrónico:
-      <input type="email" [(ngModel)]="correo" name="correo" required />
+      <input type="email" [(ngModel)]="correo" name="correo" />
     </label>
+    <div class="mensaje-error" *ngIf="errorCorreo">{{ errorCorreo }}</div>
 
     <label>Teléfono:
-      <input type="tel" [(ngModel)]="telefono" name="telefono" required pattern="[0-9]{10}" />
+      <input type="tel" [(ngModel)]="telefono" name="telefono" pattern="[0-9]{10}" />
     </label>
+    <div class="mensaje-error" *ngIf="errorTelefono">{{ errorTelefono }}</div>
 
     <label>Fecha del evento:
-      <input type="date" [(ngModel)]="fecha" name="fecha" required />
+      <input type="date" [(ngModel)]="fecha" name="fecha" />
     </label>
+    <div class="mensaje-error" *ngIf="errorFecha">{{ errorFecha }}</div>
 
     <label>Número de personas:
-      <select [(ngModel)]="personas" name="personas" required>
+      <select [(ngModel)]="personas" name="personas">
+        <option value="" disabled selected>Selecciona</option>
         <option value="1-25">1 - 25 personas</option>
         <option value="26-50">26 - 50 personas</option>
         <option value="51-75">51 - 75 personas</option>
@@ -28,9 +34,11 @@
         <option value="101-150">101 - 150 personas</option>
       </select>
     </label>
+    <div class="mensaje-error" *ngIf="errorPersonas">{{ errorPersonas }}</div>
 
     <label>Tipo de evento:
-      <select [(ngModel)]="tipoEvento" name="tipoEvento" required>
+      <select [(ngModel)]="tipoEvento" name="tipoEvento" (change)="validarTipoEvento()">
+        <option value="" disabled selected>Selecciona</option>
         <option value="Boda">Boda</option>
         <option value="Bautizo">Bautizo</option>
         <option value="Cumpleaños">Cumpleaños</option>
@@ -39,35 +47,34 @@
         <option value="Otro">Otro</option>
       </select>
     </label>
+    <div class="mensaje-error" *ngIf="errorTipoEvento">{{ errorTipoEvento }}</div>
 
     <label>¿Con alberca?
-      <select [(ngModel)]="alberca" name="alberca" required>
+      <select [(ngModel)]="alberca" name="alberca">
+        <option value="" disabled selected>Selecciona</option>
         <option value="Con alberca">Con alberca</option>
         <option value="Sin alberca">Sin alberca</option>
       </select>
     </label>
+    <div class="mensaje-error" *ngIf="errorAlberca">{{ errorAlberca }}</div>
 
     <label>Hora de inicio:
-      <input
-        type="time"
-        [(ngModel)]="horaInicio"
-        name="horaInicio"
-        step="3600"
-        (ngModelChange)="actualizarHoraFin()"
-        required
-      />
+      <select [(ngModel)]="horaInicio" name="horaInicio" (change)="actualizarHoraFin()">
+        <option value="">Selecciona una hora</option>
+        <option *ngFor="let hora of horasDisponibles" [value]="hora.value">{{ hora.display }}</option>
+      </select>
     </label>
+    <div class="mensaje-error" *ngIf="errorHoraInicio">{{ errorHoraInicio }}</div>
 
-    <label>Hora de fin (6 horas después, máx 2 AM):
-      <input type="time" [(ngModel)]="horaFin" name="horaFin" readonly />
+    <label>Hora de fin (6 horas de Duracion, máx 2:00 am):
+      <input type="text" [(ngModel)]="horaFin" name="horaFin" readonly />
     </label>
 
     <label>
       Color de cubre mantel:
       <div class="color-selector-wrapper">
         <div class="color-box" [style.backgroundColor]="colorMantel"></div>
-        <select [(ngModel)]="colorMantel" name="colorMantel" required>
-          
+        <select [(ngModel)]="colorMantel" name="colorMantel">
           <option value="#022E5B">Azul Rey</option>
           <option value="#77A1C8">Azul Cielo</option>
           <option value="#6EB8BB">Azul Aqua</option>
@@ -86,6 +93,7 @@
 
     <fieldset class="extras">
       <legend>Servicios extra</legend>
+
       <label>
         <input
           type="checkbox"
@@ -113,8 +121,21 @@
         />
         Palomera
       </label>
+
+      <label>
+        <input
+          type="checkbox"
+          (change)="toggleExtra('Hora extra', $event)"
+          name="extras"
+          value="Hora extra"
+        />
+        Hora extra (cada hora adicional aumenta duración)
+      </label>
     </fieldset>
+
+    <div class="mensaje-general" *ngIf="mensajeGeneral">{{ mensajeGeneral }}</div>
 
     <button type="submit">Enviar</button>
   </form>
 </div>
+
