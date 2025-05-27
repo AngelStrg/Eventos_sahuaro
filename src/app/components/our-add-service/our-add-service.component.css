@@ -83,9 +83,9 @@ svg {
   justify-content: center;
   gap: 20px;
   padding: 20px;
-  background-color: #86A656; /* Fondo negro */
+
   color: #fff; /* Texto blanco */
-  margin-top: 24px; /* Espacio extra si lo necesitas */
+  margin-top: 24px; /* Espacio extra si lo necesi     tas */
 }
 /* Cada servicio */
 .service {
@@ -131,6 +131,12 @@ svg {
   margin: 0 0 10px 0;
   font-size: 22px;
   color: #4CAF50;
+}
+.service:hover {
+ transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 12px 24px rgba(0, 128, 0, 0.2);
+  border-color: #4CAF50; 
+  
 }
 
 /* Descripción del servicio */
