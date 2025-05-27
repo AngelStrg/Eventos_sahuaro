@@ -8,6 +8,13 @@
   background-color: #f9f9f9; /* Color de fondo */
   border-radius: 8px; /* Bordes redondeados */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra */
+    gap: 30px;
+    margin-top: 175px;   /* <-- Aumenta este valor según la altura de tu nav-bar */
+    margin-bottom: 8px;    /* Reduce el espacio inferior */
+    flex-wrap: wrap;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: center;
 }
 .containersvg {
   display: flex;
@@ -35,21 +42,32 @@ div {
 
 /* Estilo para el ícono SVG */
 svg {
-  width: 22px; /* Ajusta el tamaño del ícono */
-  height: 22px;
+  width: 36px; /* Ajusta el tamaño del ícono */
+  height: 36px;
   fill: #4CAF50; /* Cambia el color del ícono */
   margin-top: 10px;
   margin-right: 10px;
 }
 
 /* Estilo para el título */
+
+
 h2 {
-  text-align: center;
-  font-size: 26px;
-  color: #4CAF50;
-  margin-bottom: 20px;
-  position: relative;
-  z-index: 1;
+  color: #090a09;
+  font-size: 2.8rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin: 0 0 8px 0;    /* Muy poco espacio debajo del h2 */
+  letter-spacing: 2px;
+}
+
+h2 svg {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
 }
 
 /* Estilo para la lista */
@@ -79,59 +97,131 @@ p {
   font-size: 14px;
   color: #666;
 }
-/* Contenedor principal */
-.services {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-  padding: 20px;
-  background-color: #86A656; /* Fondo negro */
-  color: #fff; /* Texto blanco */
+
+.container p {
+  color: #222;
+  font-size: 1.1rem;
+  margin: 0 0 8px 0;     /* Muy poco espacio debajo del párrafo */
 }
 
-/* Cada servicio */
-.service {
-  background-color: #fff;
-  border-radius: 10px;
-  padding: 15px;
-  display: flex; /* Flexbox para alinear imagen y texto */
+/* Contenedor principal de servicios */
+.services {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
   align-items: center;
-  width: 850px;
-  height: auto;
-  box-sizing: border-box;
-  margin-bottom: 20px;
+  background: #86A656;
+  padding: 32px 0;
+}
+
+/* Cada tarjeta de servicio */
+.service {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  width: 700px;
+  max-width: 95vw;
+  padding: 20px;
+  margin-bottom: 0;
+}
+
+/* Alternar dirección para los pares */
+.service.reverse {
+  flex-direction: row-reverse;
 }
 
 /* Imagen de cada servicio */
 .service img {
-  width: 340px;
-  height: 220px;
+  width: 240px;
+  height: 160px;
   object-fit: cover;
   border-radius: 10px;
-  margin-bottom: 0;
-  margin-right: 30px; /* Espacio entre imagen y texto */
+  margin-right: 32px;
+  margin-left: 0;
+  background: #fff;
 }
 
-/* Contenedor para el texto */
+/* Ajuste de margen cuando la imagen está a la derecha */
+.service.reverse img {
+  margin-right: 0;
+  margin-left: 32px;
+}
+
+/* Texto del servicio */
 .service-text {
   flex: 1;
-  text-align: left;
+  color: #333;
 }
 
 /* Título del servicio */
-.service h4 {
-  font-size: 22px;
+.service-text h4 {
   margin: 0 0 10px 0;
+  font-size: 22px;
   color: #4CAF50;
-  text-align: left;
 }
 
 /* Descripción del servicio */
-.service p {
+.service-text p {
+  margin: 0;
   font-size: 16px;
   color: #6b6a6a;
+}
+
+/* Opcional: responsividad para pantallas pequeñas */
+@media (max-width: 800px) {
+  .service, .service.reverse {
+    flex-direction: column !important;
+    width: 98vw;
+    padding: 10px;
+  }
+  .service img, .service.reverse img {
+    margin: 0 0 16px 0 !important;
+    width: 100%;
+    height: 180px;
+  }
+}
+
+.containersvg ul {
+  list-style: none;
+  padding: 0;
   margin: 0;
-  text-align: left;
+  display: flex;
+  justify-content: center;
+}
+
+.svg-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: #f9f9f9;
+  padding: 16px 32px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.06);
+  font-size: 1.2rem;
+  color: #222;
+  flex-wrap: wrap;
+}
+
+.svg-row h4 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  font-size: 1.3rem;
+  color: #4CAF50;
+}
+
+.svg-row svg {
+  width: 32px;
+  height: 32px;
+  fill: #4CAF50;
+  flex-shrink: 0;
+}
+
+.svg-row p {
+  margin: 0;
+  color: #222;
+  font-size: 1.1rem;
 }

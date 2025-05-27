@@ -1,41 +1,62 @@
 svg {
-  width: 22px;
-  /* Ajusta el tamaño del ícono */
+  width: 22px; /* Ajusta el tamaño del ícono */
   height: 22px;
-  fill: #4CAF50;
-  /* Cambia el color del ícono */
+  fill: #4CAF50; /* Cambia el color del ícono */
   margin-top: 10px;
   margin-right: 10px;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
 }
 .containersvg {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  text-align: center;
   padding: 20px;
-  background-color: #f9f9f9;
-  /* Color de fondo */
-  border-radius: 8px;
-  /* Bordes redondeados */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  /* Sombra */
+  background-color: #f9f9f9; /* Color de fondo */
+  border-radius: 8px; /* Bordes redondeados */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra */
+  display: flex;
+  justify-content: center;
+  margin: 24px 0;
 }
+
+.svg-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1.2rem;
+  color: #222;
+  background: #f9f9f9;
+  padding: 12px 24px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.06);
+}
+
+.svg-row svg {
+  width: 32px;
+  height: 32px;
+  fill: #4CAF50;
+  flex-shrink: 0;
+}
+
 .container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: 20px;
-  background-color: #f9f9f9;
-  /* Color de fondo */
-  border-radius: 8px;
-  /* Bordes redondeados */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  /* Sombra */
+  background-color: #f9f9f9; /* Color de fondo */
+  border-radius: 8px; /* Bordes redondeados */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra */
+    gap: 30px;
+    margin-top: 175px; /* Ajusta según la altura de tu nav-bar */
+    flex-wrap: wrap;  
+  width: 100%;
+  box-sizing: border-box;
+  text-align: center;
 }
+
+
 
 .img-container {
   width: 120;
@@ -64,6 +85,7 @@ svg {
   padding: 20px;
   background-color: #86A656; /* Fondo negro */
   color: #fff; /* Texto blanco */
+  margin-top: 24px; /* Espacio extra si lo necesitas */
 }
 /* Cada servicio */
 .service {
@@ -75,6 +97,11 @@ svg {
   width: 700px;
   max-width: 95vw;
   padding: 20px;
+  margin-bottom: 24px;
+}
+
+.service.reverse {
+  flex-direction: row-reverse;
 }
 
 /* Imagen de cada servicio */
@@ -84,7 +111,13 @@ svg {
   object-fit: cover;
   border-radius: 10px;
   margin-right: 32px;
+  margin-left: 0;
   background: #fff;
+}
+
+.service.reverse img {
+  margin-right: 0;
+  margin-left: 32px;
 }
 
 /* Texto del servicio */
@@ -105,4 +138,27 @@ svg {
   margin: 0;
   font-size: 16px;
   color: #6b6a6a;
+}
+
+h3 {
+  color: #090909;
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin: 0 0 24px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  letter-spacing: 2px;
+}
+
+h3 svg {
+  width: 36px;
+  height: 36px;
+}
+
+.container p {
+  color: #222;
+  font-size: 1.1rem;
+  margin-bottom: 32px;
 }
