@@ -98,6 +98,7 @@ svg {
   max-width: 95vw;
   padding: 20px;
   margin-bottom: 24px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .service.reverse {
