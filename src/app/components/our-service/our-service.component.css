@@ -19,8 +19,15 @@
 .btn{
     background-color: green;
     border-color: green;
+    color: white;
 
 }
+.btn:hover {
+  background-color: #59fd0db7; /* mismo color que el botón original */
+  border-color:  #59fd0db7;
+}
+
+
 .card-hover {
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }

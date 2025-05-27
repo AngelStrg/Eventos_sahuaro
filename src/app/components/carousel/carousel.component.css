@@ -58,8 +58,11 @@ body, html {
     border: none; 
     margin-left: 15%;
     width: 15%;
+    transition: transform 0.2s ease-in-out;
 }
-
+.buttons:hover {
+  transform: scale(1.05); /* Aumenta 5% el tamaño */
+}
 .si{
     display: flex;
     align-items: flex-start;
