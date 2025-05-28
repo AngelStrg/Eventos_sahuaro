@@ -130,7 +130,7 @@ p {
 }
 
 .service:hover {
- transform: translateY(-6px) scale(1.02);
+  transform: translateY(-6px) scale(1.02);
   box-shadow: 0 12px 24px rgba(0, 128, 0, 0.2);
   border-color: #6D9A45; 
   
