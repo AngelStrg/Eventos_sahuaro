@@ -17,14 +17,15 @@
     max-height: 525px;
 }
 .btn{
-    background-color: green;
-    border-color: green;
+    background-color: #6D9A45; /* mismo color que el botón original */
+    border-color:  #6D9A45;
     color: white;
 
 }
 .btn:hover {
-  background-color: #59fd0db7; /* mismo color que el botón original */
-  border-color:  #59fd0db7;
+    background-color: green;
+    border-color: green;
+    color: white;
 }
 
 

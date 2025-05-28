@@ -1,18 +1,30 @@
-.container, .container1 {
+.container {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  padding: 30px;
-  border-radius: 8px;
-  margin: 60px auto;
   gap: 30px;
-  max-width: 1200px;
-  padding-inline: 20px;
+  padding: 20px;
+  margin-top: 100px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
 }
 
-.container {
-  background-color: #6D9A45;
+.about:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 12px 24px rgba(0, 128, 0, 0.2);
+  border-color: #4CAF50;
+}
+
+.container.reverse {
+  flex-direction: row-reverse;
 }
 
 .img-text {
@@ -46,7 +58,7 @@
 }
 
 @media screen and (max-width: 768px) {
-  .container, .container1 {
+  .container {
     flex-direction: column;
     text-align: center;
   }
