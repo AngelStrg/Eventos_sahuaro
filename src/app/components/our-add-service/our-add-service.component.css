@@ -89,7 +89,7 @@ h3 svg {
   max-width: 95vw;
   padding: 20px;
   margin-bottom: 0;
-  color: #1e1e1e;
+  color: #222;
   transition: box-shadow 0.3s;
 }
 
@@ -107,6 +107,11 @@ h3 svg {
   background: #5b5b5b;
 }
 
+.service:hover {
+ transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 12px 24px rgba(0, 128, 0, 0.2);
+  border-color: #6D9A45; 
+}
 .service.reverse img {
   margin-right: 0;
   margin-left: 32px;
@@ -119,7 +124,7 @@ h3 svg {
 .service-text h4 {
   margin: 0 0 10px 0;
   font-size: 22px;
-  color: #666;
+  color: #4CAF50;
 }
 
 .service-text p {
