@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { NavBarComponent } from '../nav-bar/nav-bar.component';
+import { FooterComponent } from '../footer/footer.component';
 
 @Component({
   selector: 'app-reservation',
   standalone: true,
-  imports: [CommonModule, FormsModule, NavBarComponent],
+  imports: [CommonModule, FormsModule, NavBarComponent, FooterComponent],
   templateUrl: './reservation.component.html',
   styleUrls: ['./reservation.component.css']
 })
@@ -40,33 +41,27 @@ export class ReservationComponent {
     { value: '20', display: '8:00 pm' },
   ];
 
-  // Mensajes de error/información para mostrar en la UI
-  errorNombre: string = '';
-  errorCorreo: string = '';
-  errorTelefono: string = '';
-  errorFecha: string = '';
-  errorPersonas: string = '';
-  errorTipoEvento: string = '';
-  errorAlberca: string = '';
-  errorHoraInicio: string = '';
-  mensajeGeneral: string = '';
+  errorNombre = '';
+  errorCorreo = '';
+  errorTelefono = '';
+  errorFecha = '';
+  errorPersonas = '';
+  errorTipoEvento = '';
+  errorAlberca = '';
+  errorHoraInicio = '';
+  mensajeGeneral = '';
 
   actualizarHoraFin() {
     if (!this.horaInicio) {
       this.horaFin = '';
       return;
     }
-    const horaInicioNum = parseInt(this.horaInicio, 10);
 
+    const horaInicioNum = parseInt(this.horaInicio, 10);
     let finNum = horaInicioNum + 6 + this.horasExtras;
 
-    if (finNum > 26) {
-      finNum = 26;
-    }
-
-    if (finNum >= 24) {
-      finNum = finNum - 24;
-    }
+    if (finNum > 26) finNum = 26;
+    if (finNum >= 24) finNum = finNum - 24;
 
     this.horaFin = this.formatearHora12(finNum);
   }
@@ -77,49 +72,37 @@ export class ReservationComponent {
 
     if (hora === 0) {
       hora = 12;
-      sufijo = 'am';
     } else if (hora === 12) {
       sufijo = 'pm';
     } else if (hora > 12) {
-      hora = hora - 12;
+      hora -= 12;
       sufijo = 'pm';
     }
-
-    const horaStr = hora < 10 ? '0' + hora : hora.toString();
 
     return `${hora}:00 ${sufijo}`;
   }
 
   toggleExtra(extra: string, event: any) {
-    if (extra === 'Hora extra' && !this.horaInicio) {
-      // Mostrar mensaje de error en lugar de alert
-      this.errorHoraInicio = 'Primero selecciona tu hora de inicio antes de agregar horas extras.';
-      event.target.checked = false;
-      return;
-    } else {
-      this.errorHoraInicio = '';
-    }
-
     if (event.target.checked) {
       this.extras.push(extra);
-      if (extra === 'Hora extra') {
-        this.horasExtras++;
-      }
     } else {
       this.extras = this.extras.filter(e => e !== extra);
-      if (extra === 'Hora extra') {
-        this.horasExtras--;
-      }
     }
-    this.actualizarHoraFin();
   }
 
   validarTipoEvento() {
-    if (this.tipoEvento === 'XV Años') {
-      this.mensajeGeneral = 'Por el tipo de evento XV Años, los precios pueden variar debido a contratación de seguridad.';
-    } else {
-      this.mensajeGeneral = '';
-    }
+    this.mensajeGeneral =
+      this.tipoEvento === 'XV Años'
+        ? 'Por el tipo de evento XV Años, los precios pueden variar debido a contratación de seguridad.'
+        : '';
+  }
+
+  obtenerHorasExtraDisponibles(): number[] {
+    if (!this.horaInicio) return [0];
+
+    const horaInicioNum = parseInt(this.horaInicio, 10);
+    const maxExtras = Math.max(0, 26 - (horaInicioNum + 6)); // Máximo hasta hora 26 (2:00 am)
+    return Array.from({ length: maxExtras + 1 }, (_, i) => i); // [0,1,2,...]
   }
 
   enviarFormulario() {
@@ -146,12 +129,9 @@ export class ReservationComponent {
     if (!this.telefono.trim()) {
       this.errorTelefono = 'Por favor ingresa tu teléfono.';
       valido = false;
-    } else {
-      const telefonoRegex = /^[0-9]{10}$/;
-      if (!telefonoRegex.test(this.telefono)) {
-        this.errorTelefono = 'El teléfono debe tener 10 dígitos numéricos.';
-        valido = false;
-      }
+    } else if (!/^[0-9]{10}$/.test(this.telefono)) {
+      this.errorTelefono = 'El teléfono debe tener 10 dígitos numéricos.';
+      valido = false;
     }
     if (!this.fecha) {
       this.errorFecha = 'Por favor selecciona la fecha del evento.';
@@ -180,9 +160,5 @@ export class ReservationComponent {
     }
 
     this.mensajeGeneral = 'Formulario enviado correctamente. ¡Gracias por tu reservación!';
-    // Aquí puedes agregar la lógica para enviar los datos a backend
   }
 }
-
-
-

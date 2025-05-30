@@ -1,4 +1,5 @@
 <app-nav-bar></app-nav-bar>
+
 <div class="form-container">
   <h2>Reservación de Evento</h2>
 
@@ -66,7 +67,17 @@
     </label>
     <div class="mensaje-error" *ngIf="errorHoraInicio">{{ errorHoraInicio }}</div>
 
-    <label>Hora de fin (6 horas de Duracion, máx 2:00 am):
+    <!-- NUEVA SECCIÓN: Horas extra -->
+    <label *ngIf="horaInicio">
+      Horas extra:
+      <select [(ngModel)]="horasExtras" name="horasExtras" (change)="actualizarHoraFin()">
+        <option *ngFor="let h of obtenerHorasExtraDisponibles()" [value]="h">
+          {{ h }} hora{{ h === 1 ? '' : 's' }}
+        </option>
+      </select>
+    </label>
+
+    <label>Hora de fin (6 horas de duración, máx 2:00 am):
       <input type="text" [(ngModel)]="horaFin" name="horaFin" readonly />
     </label>
 
@@ -121,16 +132,6 @@
         />
         Palomera
       </label>
-
-      <label>
-        <input
-          type="checkbox"
-          (change)="toggleExtra('Hora extra', $event)"
-          name="extras"
-          value="Hora extra"
-        />
-        Hora extra (cada hora adicional aumenta duración)
-      </label>
     </fieldset>
 
     <div class="mensaje-general" *ngIf="mensajeGeneral">{{ mensajeGeneral }}</div>
@@ -138,4 +139,6 @@
     <button type="submit">Enviar</button>
   </form>
 </div>
+
+<app-footer></app-footer>
 
