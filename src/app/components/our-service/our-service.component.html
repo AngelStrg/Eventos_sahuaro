@@ -1,35 +1,34 @@
 <section class="linea ">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <div class="card card-hover" style="width: 28%;">
-    <img src="Location.png" class="card-img-top" alt="Ubicacion">
-    <div class="card-body">
-      <h5 class="card-title">Nuestra ubicaion</h5>
-      <p class="card-text">Descubre la ubicación exacta de nuestras instalaciones y cómo llegar desde cualquier punto de la ciudad. </p>
-      <div class="d-flex justify-content-center">
-        <a [routerLink]="['/location']" routerLinkActive="router-link-active" class="btn">Ver más</a>
+  
+    <div class="card card-hover" style="width: 28%; cursor: pointer;" [routerLink]="['/location']" routerLinkActive="router-link-active">
+      <img src="Location.png" class="card-img-top" alt="Ubicacion">
+      <div class="card-body">
+        <h5 class="card-title">Nuestra ubicación</h5>
+        <p class="card-text">Descubre la ubicación exacta de nuestras instalaciones y cómo llegar desde cualquier punto de la ciudad.</p>
+        <div class="d-flex justify-content-center">
+        <a [routerLink]="['/location']" routerLinkActive="router-link-active" href="#" class="btn">Ver más</a>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="card card-hover" style="width: 28%;">
+  <div class="card card-hover" style="width: 28%; cursor: pointer;" [routerLink]="['/app-basic-services']" routerLinkActive="router-link-active">
     <img src="OurService.jpg" class="card-img-top" alt="Nuestros servicios">
     <div class="card-body">
       <h5 class="card-title">Nuestros servicios</h5>
       <p class="card-text">Conoce los servicios basicos que vienen incluidos al contratar nuestros servicios</p>
       <div class="d-flex justify-content-center">
-        <a [routerLink]="['/app-basic-services']" routerLinkActive="router-link-active" href="#"
-          class="btn">Ver más</a>
+        <a [routerLink]="['/app-basic-services']" routerLinkActive="router-link-active" href="#" class="btn">Ver más</a>
       </div>
     </div>
   </div>
-  <div class="card card-hover" style="width: 28%;">
+  <div class="card card-hover" style="width: 28%; cursor: pointer;" [routerLink]="['/our-add-service']" routerLinkActive="router-link-active">
     <img src="OurAddService.jpg" class="card-img-top" alt="Servicios adicionales">
     <div class="card-body">
       <h5 class="card-title">Servicios adicionales</h5>
       <p class="card-text">Conoce nuestros servicios adicionales que brindamos para que puedan aumentar su experiencia
       </p>
       <div class="d-flex justify-content-center">
-        <a [routerLink]="['/our-add-service']" routerLinkActive="router-link-active" href="#"
-          class="btn">Ver
+        <a [routerLink]="['/our-add-service']" routerLinkActive="router-link-active" href="#" class="btn">Ver
           más</a>
       </div>
     </div>

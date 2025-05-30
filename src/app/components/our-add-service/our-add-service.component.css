@@ -1,7 +1,7 @@
 svg {
   width: 22px; /* Ajusta el tamaño del ícono */
   height: 22px;
-  fill: #4CAF50; /* Cambia el color del ícono */
+  fill: #6D9A45; /* Cambia el color del ícono */
   margin-top: 10px;
   margin-right: 10px;
 }
@@ -35,69 +35,61 @@ svg {
 .svg-row svg {
   width: 32px;
   height: 32px;
-  fill: #4CAF50;
+  fill: #6D9A45;
   flex-shrink: 0;
 }
 
 .container {
+  width: 100%;
+  text-align: center;
+  margin-top: 120px;
+  margin-bottom: 8px;
+  background: #fff;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+
+/* Título principal */
+h3 {
+  color: #6D9A45;
+  font-size: 2.5rem;
+  font-weight: bold;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 20px;
-  background-color: #f9f9f9; /* Color de fondo */
-  border-radius: 8px; /* Bordes redondeados */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra */
-    gap: 30px;
-    margin-top: 175px; /* Ajusta según la altura de tu nav-bar */
-    flex-wrap: wrap;  
-  width: 100%;
-  box-sizing: border-box;
-  text-align: center;
+  gap: 16px;
+  margin: 0 0 16px 0;
+  letter-spacing: 2px;
 }
 
-
-
-.img-container {
-  width: 120;
-  height: 200;
-  max-width: 800px;
-  /* Ancho máximo del contenedor */
-  margin: 0 auto;
-  /* Centrar el contenedor */
-  align-items: right;
+h3 svg {
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
 }
 
-/* Contenedor principal */
+/* Sección de servicios */
 .additional-services {
   display: flex;
   flex-direction: column;
   gap: 24px;
   align-items: center;
   background: #fff;
-  padding: 32px 0;
+  padding: 16px 0;
 }
-.additional-services {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-  padding: 20px;
 
-  color: #fff; /* Texto blanco */
-  margin-top: 24px; /* Espacio extra si lo necesi     tas */
-}
-/* Cada servicio */
+/* Tarjeta de servicio */
 .service {
   display: flex;
   align-items: center;
   background: #fff;
   border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  box-shadow: 0 2px 8px rgba(44, 146, 24, 0.322);
   width: 700px;
   max-width: 95vw;
   padding: 20px;
-  margin-bottom: 24px;
+  margin-bottom: 0;
+  color: #222222;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -105,7 +97,6 @@ svg {
   flex-direction: row-reverse;
 }
 
-/* Imagen de cada servicio */
 .service img {
   width: 240px;
   height: 160px;
@@ -113,59 +104,98 @@ svg {
   border-radius: 10px;
   margin-right: 32px;
   margin-left: 0;
-  background: #fff;
+  background: #5b5b5b;
 }
 
+.service:hover {
+ transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 12px 24px rgba(0, 128, 0, 0.2);
+  border-color: #6D9A45; 
+}
 .service.reverse img {
   margin-right: 0;
   margin-left: 32px;
 }
 
-/* Texto del servicio */
 .service-text {
   flex: 1;
-  color: #fff;
 }
 
-/* Título del servicio */
 .service-text h4 {
   margin: 0 0 10px 0;
   font-size: 22px;
-  color: #4CAF50;
-}
-.service:hover {
- transform: translateY(-6px) scale(1.02);
-  box-shadow: 0 12px 24px rgba(0, 128, 0, 0.2);
-  border-color: #4CAF50; 
-  
+  color: #6D9A45;
 }
 
-/* Descripción del servicio */
 .service-text p {
   margin: 0;
   font-size: 16px;
-  color: #6b6a6a;
+  color: #444;
 }
 
-h3 {
-  color: #090909;
-  font-size: 2.5rem;
-  font-weight: bold;
-  margin: 0 0 24px 0;
+/* Sección SVG extra */
+.containersvg {
+  display: flex;
+  justify-content: center;
+  margin: 24px 0;
+}
+
+.svg-row {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 16px;
-  letter-spacing: 2px;
-}
-
-h3 svg {
-  width: 36px;
-  height: 36px;
-}
-
-.container p {
+  gap: 12px;
+  font-size: 1.2rem;
   color: #222;
-  font-size: 1.1rem;
-  margin-bottom: 32px;
+  background: #f9f9f9;
+  padding: 12px 24px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.06);
+}
+
+.svg-row svg {
+  width: 32px;
+  height: 32px;
+  fill: #4CAF50;
+  flex-shrink: 0;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 900px) {
+  .service {
+    width: 98vw;
+    padding: 12px;
+  }
+}
+
+@media (max-width: 700px) {
+  h3 {
+    font-size: 1.5rem;
+    gap: 8px;
+  }
+  .service, .service.reverse {
+    flex-direction: column !important;
+    align-items: flex-start;
+    width: 98vw;
+    padding: 10px;
+    text-align: left;
+  }
+  .service img, .service.reverse img {
+    margin: 0 0 16px 0 !important;
+    width: 100%;
+    height: 180px;
+  }
+  .service-text h4 {
+    font-size: 1.1rem;
+  }
+  .service-text p {
+    font-size: 0.95rem;
+  }
+  .svg-row {
+    font-size: 1rem;
+    padding: 8px 10px;
+  }
+  .svg-row svg {
+    width: 24px;
+    height: 24px;
+  }
 }

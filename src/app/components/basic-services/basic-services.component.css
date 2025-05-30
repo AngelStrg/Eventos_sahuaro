@@ -9,7 +9,7 @@
   border-radius: 8px; /* Bordes redondeados */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra */
     gap: 30px;
-    margin-top: 175px;   /* <-- Aumenta este valor según la altura de tu nav-bar */
+    margin-top: 100px;   /* <-- Aumenta este valor según la altura de tu nav-bar */
     margin-bottom: 8px;    /* Reduce el espacio inferior */
     flex-wrap: wrap;
   width: 100%;
@@ -44,7 +44,7 @@ div {
 svg {
   width: 36px; /* Ajusta el tamaño del ícono */
   height: 36px;
-  fill: #4CAF50; /* Cambia el color del ícono */
+  fill: #6D9A45; /* Cambia el color del ícono */
   margin-top: 10px;
   margin-right: 10px;
 }
@@ -53,8 +53,8 @@ svg {
 
 
 h2 {
-  color: #090a09;
-  font-size: 2.8rem;
+  color: #6D9A45;
+  font-size: 2.5rem;
   font-weight: bold;
   display: flex;
   align-items: center;
@@ -65,8 +65,8 @@ h2 {
 }
 
 h2 svg {
-  width: 40px;
-  height: 40px;
+  width: 36px;
+  height: 36px;
   flex-shrink: 0;
 }
 
@@ -110,7 +110,8 @@ p {
   flex-direction: column;
   gap: 24px;
   align-items: center;
-  padding: 32px 0;
+  background: #fff;
+  padding: 16px 0;
 }
 
 /* Cada tarjeta de servicio */
@@ -124,13 +125,14 @@ p {
   max-width: 95vw;
   padding: 20px;
   margin-bottom: 0;
+  color: #222;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .service:hover {
- transform: translateY(-6px) scale(1.02);
-  box-shadow: 0 12px 24px rgba(0, 128, 0, 0.2);
-  border-color: #4CAF50; 
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 12px 24px rgba(17, 138, 17, 0.2);
+  border-color: #6D9A45; 
   
 }
 
@@ -159,37 +161,24 @@ p {
 /* Texto del servicio */
 .service-text {
   flex: 1;
-  color: #333;
+  text-align: left;
 }
 
 /* Título del servicio */
 .service-text h4 {
   margin: 0 0 10px 0;
   font-size: 22px;
-  color: #4CAF50;
+  color: #6D9A45;
 }
 
 /* Descripción del servicio */
 .service-text p {
-  margin: 0;
+  margin: 0 0 6px 0;
   font-size: 16px;
-  color: #6b6a6a;
+  color: #444;
 }
 
-/* Opcional: responsividad para pantallas pequeñas */
-@media (max-width: 800px) {
-  .service, .service.reverse {
-    flex-direction: column !important;
-    width: 98vw;
-    padding: 10px;
-  }
-  .service img, .service.reverse img {
-    margin: 0 0 16px 0 !important;
-    width: 100%;
-    height: 180px;
-  }
-}
-
+/* Sección SVG extra */
 .containersvg ul {
   list-style: none;
   padding: 0;
@@ -231,4 +220,49 @@ p {
   margin: 0;
   color: #222;
   font-size: 1.1rem;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 900px) {
+  .service {
+    width: 98vw;
+    padding: 12px;
+  }
+}
+
+@media (max-width: 700px) {
+  h2 {
+    font-size: 1.5rem;
+    gap: 8px;
+  }
+  h2 svg {
+    width: 24px;
+    height: 24px;
+  }
+  .service, .service.reverse {
+    flex-direction: column !important;
+    align-items: flex-start;
+    width: 98vw;
+    padding: 10px;
+    text-align: left;
+  }
+  .service img, .service.reverse img {
+    margin: 0 0 16px 0 !important;
+    width: 100%;
+    height: 180px;
+  }
+  .service-text h4 {
+    font-size: 1.1rem;
+  }
+  .service-text p {
+    font-size: 0.95rem;
+  }
+  .svg-row {
+    font-size: 1rem;
+    padding: 8px 10px;
+  }
+  .svg-row svg {
+    width: 24px;
+    height: 24px;
+  }
 }
