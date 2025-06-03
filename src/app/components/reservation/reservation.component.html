@@ -70,7 +70,7 @@
     <!-- NUEVA SECCIÓN: Horas extra -->
     <label *ngIf="horaInicio">
       Horas extra:
-      <select [(ngModel)]="horasExtras" name="horasExtras" (change)="actualizarHoraFin()">
+      <select [(ngModel)]="horasExtras" name="horasExtras" (ngModelChange)="onHorasExtrasChange($event)">
         <option *ngFor="let h of obtenerHorasExtraDisponibles()" [value]="h">
           {{ h }} hora{{ h === 1 ? '' : 's' }}
         </option>
@@ -132,6 +132,17 @@
         />
         Palomera
       </label>
+<label>
+  <input
+    type="checkbox"
+    (change)="toggleExtra('Smoothies', $event)"
+    name="extras"
+    value="Smoothies"
+  />
+  Smoothies
+</label>
+
+
     </fieldset>
 
     <div class="mensaje-general" *ngIf="mensajeGeneral">{{ mensajeGeneral }}</div>

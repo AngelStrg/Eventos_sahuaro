@@ -105,6 +105,12 @@ export class ReservationComponent {
     return Array.from({ length: maxExtras + 1 }, (_, i) => i); // [0,1,2,...]
   }
 
+  // **CORRECCIÓN: método para actualizar horasExtras y refrescar horaFin**
+  onHorasExtrasChange(valor: any) {
+    this.horasExtras = Number(valor) || 0;
+    this.actualizarHoraFin();
+  }
+
   enviarFormulario() {
     this.errorNombre = '';
     this.errorCorreo = '';
@@ -162,3 +168,4 @@ export class ReservationComponent {
     this.mensajeGeneral = 'Formulario enviado correctamente. ¡Gracias por tu reservación!';
   }
 }
+
