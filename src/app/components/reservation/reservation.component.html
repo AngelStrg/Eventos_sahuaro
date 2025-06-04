@@ -1,44 +1,47 @@
 <app-nav-bar></app-nav-bar>
-<div class="form-container">
-  <h2>Reservación de Evento</h2>
 
-  <form (submit)="enviarFormulario(); $event.preventDefault();">
+<div class="formulario-resumen-container">
+  <!-- FORMULARIO -->
+  <div class="form-container">
+    <h2>Reservación de Evento</h2>
 
-    <label>Nombre completo:
-      <input type="text" [(ngModel)]="nombre" name="nombre" />
-    </label>
-    <div class="mensaje-error" *ngIf="errorNombre">{{ errorNombre }}</div>
+    <form (submit)="enviarFormulario(); $event.preventDefault();">
+      <h3 class="subtitulo-seccion">Datos de contacto</h3>
 
-    <label>Correo electrónico:
-      <input type="email" [(ngModel)]="correo" name="correo" />
-    </label>
-    <div class="mensaje-error" *ngIf="errorCorreo">{{ errorCorreo }}</div>
+      <div class="fila-nombre-apellidos">
+        <div class="campo">
+          <input type="text" [(ngModel)]="nombre" name="nombre" placeholder="Nombre(s)" />
+          <div class="mensaje-error" *ngIf="errorNombre">{{ errorNombre }}</div>
+        </div>
+        <div class="campo">
+          <input type="text" [(ngModel)]="apellidos" name="apellidos" placeholder="Apellidos" />
+          <div class="mensaje-error" *ngIf="errorApellidos">{{ errorApellidos }}</div>
+        </div>
+      </div>
 
-    <label>Teléfono:
-      <input type="tel" [(ngModel)]="telefono" name="telefono" pattern="[0-9]{10}" />
-    </label>
-    <div class="mensaje-error" *ngIf="errorTelefono">{{ errorTelefono }}</div>
+      <input type="email" [(ngModel)]="correo" name="correo" placeholder="Correo electrónico" />
+      <div class="mensaje-error" *ngIf="errorCorreo">{{ errorCorreo }}</div>
 
-    <label>Fecha del evento:
-      <input type="date" [(ngModel)]="fecha" name="fecha" />
-    </label>
-    <div class="mensaje-error" *ngIf="errorFecha">{{ errorFecha }}</div>
+      <input type="tel" [(ngModel)]="telefono" name="telefono" pattern="[0-9]{10}" placeholder="Teléfono" />
+      <div class="mensaje-error" *ngIf="errorTelefono">{{ errorTelefono }}</div>
 
-    <label>Número de personas:
+      <h3 class="subtitulo-seccion">Detalles del evento</h3>
+
+      <input type="date" [(ngModel)]="fecha" name="fecha" placeholder="Fecha del evento" />
+      <div class="mensaje-error" *ngIf="errorFecha">{{ errorFecha }}</div>
+
       <select [(ngModel)]="personas" name="personas">
-        <option value="" disabled selected>Selecciona</option>
+        <option value="" disabled selected>Número de personas</option>
         <option value="1-25">1 - 25 personas</option>
         <option value="26-50">26 - 50 personas</option>
         <option value="51-75">51 - 75 personas</option>
         <option value="76-100">76 - 100 personas</option>
         <option value="101-150">101 - 150 personas</option>
       </select>
-    </label>
-    <div class="mensaje-error" *ngIf="errorPersonas">{{ errorPersonas }}</div>
+      <div class="mensaje-error" *ngIf="errorPersonas">{{ errorPersonas }}</div>
 
-    <label>Tipo de evento:
       <select [(ngModel)]="tipoEvento" name="tipoEvento" (change)="validarTipoEvento()">
-        <option value="" disabled selected>Selecciona</option>
+        <option value="" disabled selected>Tipo de evento</option>
         <option value="Boda">Boda</option>
         <option value="Bautizo">Bautizo</option>
         <option value="Cumpleaños">Cumpleaños</option>
@@ -46,35 +49,33 @@
         <option value="XV Años">XV Años</option>
         <option value="Otro">Otro</option>
       </select>
-    </label>
-    <div class="mensaje-error" *ngIf="errorTipoEvento">{{ errorTipoEvento }}</div>
+      <div class="mensaje-error" *ngIf="errorTipoEvento">{{ errorTipoEvento }}</div>
 
-    <label>¿Con alberca?
       <select [(ngModel)]="alberca" name="alberca">
-        <option value="" disabled selected>Selecciona</option>
+        <option value="" disabled selected>¿Con alberca?</option>
         <option value="Con alberca">Con alberca</option>
         <option value="Sin alberca">Sin alberca</option>
       </select>
-    </label>
-    <div class="mensaje-error" *ngIf="errorAlberca">{{ errorAlberca }}</div>
+      <div class="mensaje-error" *ngIf="errorAlberca">{{ errorAlberca }}</div>
 
-    <label>Hora de inicio:
       <select [(ngModel)]="horaInicio" name="horaInicio" (change)="actualizarHoraFin()">
-        <option value="">Selecciona una hora</option>
+        <option value="">Hora de inicio</option>
         <option *ngFor="let hora of horasDisponibles" [value]="hora.value">{{ hora.display }}</option>
       </select>
-    </label>
-    <div class="mensaje-error" *ngIf="errorHoraInicio">{{ errorHoraInicio }}</div>
+      <div class="mensaje-error" *ngIf="errorHoraInicio">{{ errorHoraInicio }}</div>
 
-    <label>Hora de fin (6 horas de Duracion, máx 2:00 am):
-      <input type="text" [(ngModel)]="horaFin" name="horaFin" readonly />
-    </label>
+      <select *ngIf="horaInicio" [(ngModel)]="horasExtras" name="horasExtras" (ngModelChange)="onHorasExtrasChange($event)">
+        <option *ngFor="let h of obtenerHorasExtraDisponibles()" [value]="h">
+          {{ h }} hora{{ h === 1 ? '' : 's' }}
+        </option>
+      </select>
 
-    <label>
-      Color de cubre mantel:
+      <input type="text" [(ngModel)]="horaFin" name="horaFin" readonly placeholder="Hora de fin" />
+
       <div class="color-selector-wrapper">
         <div class="color-box" [style.backgroundColor]="colorMantel"></div>
         <select [(ngModel)]="colorMantel" name="colorMantel">
+          <option value="">Color de cubre mantel</option>
           <option value="#022E5B">Azul Rey</option>
           <option value="#77A1C8">Azul Cielo</option>
           <option value="#6EB8BB">Azul Aqua</option>
@@ -89,53 +90,53 @@
           <option value="#C03F00">Naranja</option>
         </select>
       </div>
-    </label>
 
-    <fieldset class="extras">
-      <legend>Servicios extra</legend>
+      <fieldset class="extras">
+        <legend>Servicios extra</legend>
+        <label>
+          <input type="checkbox" (change)="toggleExtra('Inflable Rosa', $event)" name="extras" value="Inflable Rosa" />
+          Inflable Rosa
+        </label>
+        <label>
+          <input type="checkbox" (change)="toggleExtra('Inflable Rojo', $event)" name="extras" value="Inflable Rojo" />
+          Inflable Rojo
+        </label>
+        <label>
+          <input type="checkbox" (change)="toggleExtra('Palomera', $event)" name="extras" value="Palomera" />
+          Palomera
+        </label>
+        <label>
+          <input type="checkbox" (change)="toggleExtra('Smoothies', $event)" name="extras" value="Smoothies" />
+          Smoothies
+        </label>
+      </fieldset>
 
-      <label>
-        <input
-          type="checkbox"
-          (change)="toggleExtra('Inflable Rosa', $event)"
-          name="extras"
-          value="Inflable Rosa"
-        />
-        Inflable Rosa
-      </label>
-      <label>
-        <input
-          type="checkbox"
-          (change)="toggleExtra('Inflable Rojo', $event)"
-          name="extras"
-          value="Inflable Rojo"
-        />
-        Inflable Rojo
-      </label>
-      <label>
-        <input
-          type="checkbox"
-          (change)="toggleExtra('Palomera', $event)"
-          name="extras"
-          value="Palomera"
-        />
-        Palomera
-      </label>
+      <div class="mensaje-general" *ngIf="mensajeGeneral">{{ mensajeGeneral }}</div>
 
-      <label>
-        <input
-          type="checkbox"
-          (change)="toggleExtra('Hora extra', $event)"
-          name="extras"
-          value="Hora extra"
-        />
-        Hora extra (cada hora adicional aumenta duración)
-      </label>
-    </fieldset>
+      <button type="submit">Enviar</button>
+    </form>
+  </div>
 
-    <div class="mensaje-general" *ngIf="mensajeGeneral">{{ mensajeGeneral }}</div>
-
-    <button type="submit">Enviar</button>
-  </form>
+  <!-- RESUMEN -->
+  <div class="resumen-container">
+    <h3>Resumen de Reservación</h3>
+    <ul>
+      <li><strong>Nombre:</strong> {{ nombre }} {{ apellidos }}</li>
+      <li><strong>Correo:</strong> {{ correo }}</li>
+      <li><strong>Teléfono:</strong> {{ telefono }}</li>
+      <li><strong>Fecha:</strong> {{ fecha }}</li>
+      <li><strong>Personas:</strong> {{ personas }}</li>
+      <li><strong>Tipo de Evento:</strong> {{ tipoEvento }}</li>
+      <li><strong>Alberca:</strong> {{ alberca }}</li>
+      <li><strong>Hora de Inicio:</strong> {{ horaInicio }}</li>
+      <li><strong>Hora de Fin:</strong> {{ horaFin }}</li>
+      <li><strong>Color del Mantel:</strong>
+        <span [style.backgroundColor]="colorMantel" style="display:inline-block;width:15px;height:15px;border:1px solid #ccc;margin-left:5px;"></span>
+      </li>
+      <li><strong>Extras:</strong> {{ extras.join(', ') || 'Ninguno' }}</li>
+    </ul>
+  </div>
 </div>
+
+<app-footer></app-footer>
 
