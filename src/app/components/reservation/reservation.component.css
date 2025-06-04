@@ -1,175 +1,255 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+/* Importa la fuente 'Inter' desde Google Fonts en tres pesos: 400, 500 y 700 */
 
 body {
-  background-color: #f7f8fa;
-  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  margin: 0;
-  padding: 0;
-  color: #222;
+  background-color: #f7f8fa; /* Color de fondo general, gris muy claro */
+  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fuente preferida */
+  margin: 0; /* Elimina márgenes por defecto */
+  padding: 0; /* Elimina relleno por defecto */
+  color: #222; /* Color de texto general (gris muy oscuro) */
 }
 
 .form-container {
-  max-width: 480px;
-  margin: 50px auto;
-  padding: 32px 28px;
-  background: #fff;
-  border-radius: 16px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-  transition: box-shadow 0.3s ease;
-  margin-top: 160px;
+  width: 48%;                /* Ocupa casi la mitad del ancho total */
+  margin-left: 40px;         /* Separación desde el borde izquierdo */
+  margin-top: 160px;         /* Separación superior */
+  padding: 32px 28px;        /* Relleno interno */
+  background: #fff;          /* Fondo blanco */
+  border-radius: 16px;       /* Bordes redondeados */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  transition: box-shadow 0.3s ease; /* Transición al pasar el mouse */
 }
 
 .form-container:hover {
-  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.15); /* Sombra más profunda al pasar el mouse */
 }
 
 h2 {
-  text-align: center;
-  font-weight: 700;
-  font-size: 2rem;
-  margin-bottom: 28px;
-  color: #111;
+  text-align: center; /* Centra el título */
+  font-weight: 700; /* Texto en negrita */
+  font-size: 2rem; /* Tamaño del título */
+  margin-bottom: 28px; /* Espacio debajo del título */
+  color: #111; /* Color del texto */
 }
 
 label {
-  display: block;
-  margin-bottom: 14px;
-  font-weight: 500;
-  font-size: 0.9rem;
-  color: #444;
+  display: block; /* Hace que cada etiqueta ocupe una línea completa */
+  margin-bottom: 14px; /* Espacio inferior */
+  font-weight: 500; /* Semi-negrita */
+  font-size: 0.9rem; /* Tamaño de fuente ligeramente reducido */
+  color: #444; /* Color de texto medio */
 }
 
 input,
 select {
-  width: 100%;
-  padding: 12px 14px;
-  margin-top: 6px;
-  border: 1.5px solid #ddd;
-  border-radius: 8px;
-  font-size: 1rem;
-  background-color: #fafafa;
-  transition: border-color 0.25s ease, background-color 0.25s ease;
+  width: 100%; /* Ancho completo del contenedor */
+  padding: 12px 14px; /* Espaciado interno */
+  margin-top: 6px; /* Espacio superior entre input y label */
+  border: 1.5px solid #ddd; /* Borde gris claro */
+  border-radius: 8px; /* Bordes redondeados */
+  font-size: 1rem; /* Tamaño de texto */
+  background-color: #fafafa; /* Fondo gris claro */
+  transition: border-color 0.25s ease, background-color 0.25s ease; /* Transición suave */
 }
 
 input:focus,
 select:focus {
-  border-color: #4caf50;
-  background-color: #fff;
-  outline: none;
-  box-shadow: 0 0 6px rgba(76, 175, 80, 0.4);
+  border-color: #4caf50; /* Borde verde al enfocar */
+  background-color: #fff; /* Fondo blanco al enfocar */
+  outline: none; /* Quita el borde predeterminado del navegador */
+  box-shadow: 0 0 6px rgba(76, 175, 80, 0.4); /* Resplandor verde sutil */
 }
 
-/* Contenedor flex para color + selector */
+/* === Color del mantel === */
+
 .color-selector-wrapper {
-  display: flex;
-  align-items: center;
-  gap: 12px; /* espacio entre el recuadro y el select */
-  margin-top: 6px;
+  display: flex; /* Alinea el recuadro y el selector en fila */
+  align-items: center; /* Centra verticalmente */
+  gap: 12px; /* Espacio entre los elementos */
+  margin-top: 6px; /* Separación respecto al elemento anterior */
 }
 
-/* Recuadro de color */
 .color-box {
-  width: 36px;
-  height: 36px;
-  border-radius: 8px;
-  border: 1.5px solid #ccc;
-  transition: border-color 0.3s ease;
-  flex-shrink: 0;
+  width: 36px; /* Ancho del recuadro */
+  height: 36px; /* Alto del recuadro */
+  border-radius: 8px; /* Bordes redondeados */
+  border: 1.5px solid #ccc; /* Borde gris claro */
+  transition: border-color 0.3s ease; /* Transición del borde */
+  flex-shrink: 0; /* Evita que el recuadro se achique en flex */
 }
 
 .color-box:hover {
-  border-color: #4caf50;
+  border-color: #4caf50; /* Cambia a verde al pasar el mouse */
 }
 
+/* === Servicios Extra === */
+
 .extras {
-  margin-top: 30px;
-  padding: 16px 20px;
-  background-color: #f4f7f6;
-  border-radius: 12px;
-  border: 1.5px solid #e0e0e0;
+  margin-top: 30px; /* Separación superior */
+  padding: 16px 20px; /* Relleno interno */
+  background-color: #f4f7f6; /* Fondo gris verdoso claro */
+  border-radius: 12px; /* Bordes redondeados */
+  border: 1.5px solid #e0e0e0; /* Borde gris claro */
 }
 
 .extras legend {
-  font-weight: 600;
-  font-size: 1.1rem;
-  margin-bottom: 16px;
-  color: #333;
+  font-weight: 600; /* Negrita */
+  font-size: 1.1rem; /* Tamaño del texto */
+  margin-bottom: 16px; /* Espacio inferior */
+  color: #333; /* Color de texto oscuro */
 }
 
 .extras label {
-  display: flex;
-  align-items: center;
-  margin-bottom: 12px;
-  font-weight: 500;
-  font-size: 0.95rem;
-  cursor: pointer;
-  color: #555;
-  transition: color 0.3s ease;
+  display: flex; /* Alineación horizontal */
+  align-items: center; /* Centrado vertical */
+  margin-bottom: 12px; /* Espacio inferior */
+  font-weight: 500; /* Semi-negrita */
+  font-size: 0.95rem; /* Tamaño de texto medio */
+  cursor: pointer; /* Cursor de clic */
+  color: #555; /* Color de texto gris medio */
+  transition: color 0.3s ease; /* Transición suave */
 }
 
 .extras label:hover {
-  color: #4caf50;
+  color: #4caf50; /* Color verde al pasar el mouse */
 }
 
 .extras input[type="checkbox"] {
-  margin-right: 12px;
-  width: 18px;
+  margin-right: 12px; /* Espacio entre checkbox y texto */
+  width: 18px; /* Tamaño del checkbox */
   height: 18px;
-  accent-color: #4caf50;
-  cursor: pointer;
-  transition: transform 0.2s ease;
+  accent-color: #4caf50; /* Color de marca del checkbox */
+  cursor: pointer; /* Cursor de clic */
+  transition: transform 0.2s ease; /* Efecto de escala */
 }
 
 .extras input[type="checkbox"]:hover {
-  transform: scale(1.1);
+  transform: scale(1.1); /* Aumenta ligeramente el tamaño al pasar el mouse */
 }
 
+/* === Botón de Enviar === */
+
 button {
-  margin-top: 28px;
-  width: 100%;
-  padding: 14px 0;
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: #fff;
-  background-color: #4caf50;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  margin-top: 28px; /* Separación superior */
+  width: 100%; /* Ocupa todo el ancho */
+  padding: 14px 0; /* Altura del botón */
+  font-size: 1.1rem; /* Tamaño del texto */
+  font-weight: 700; /* Negrita */
+  color: #fff; /* Texto blanco */
+  background-color: #4caf50; /* Verde principal */
+  border: none; /* Sin borde */
+  border-radius: 10px; /* Bordes redondeados */
+  cursor: pointer; /* Cursor de clic */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Transiciones suaves */
 }
 
 button:hover {
-  background-color: #388e3c;
-  box-shadow: 0 6px 16px rgba(56, 142, 60, 0.4);
+  background-color: #388e3c; /* Verde más oscuro */
+  box-shadow: 0 6px 16px rgba(56, 142, 60, 0.4); /* Sombra al pasar el mouse */
 }
 
-
+/* === Mensajes de confirmación y error === */
 
 .mensaje-general {
-  margin-top: 15px;
-  font-size: 1em;
-  font-weight: 600;
-  color: #155724; /* verde para éxito o información */
-  background-color: #d4edda;
-  border: 1px solid #c3e6cb;
-  padding: 10px;
-  border-radius: 4px;
+  margin-top: 15px; /* Separación superior */
+  font-size: 1em; /* Tamaño estándar */
+  font-weight: 600; /* Semi-negrita */
+  color: #155724; /* Verde para éxito */
+  background-color: #d4edda; /* Fondo verde claro */
+  border: 1px solid #c3e6cb; /* Borde verde suave */
+  padding: 10px; /* Relleno interno */
+  border-radius: 4px; /* Bordes redondeados */
 }
 
 .mensaje-error {
-  color: #d93025; /* rojo para error */
-  font-size: 0.9em;
-  margin: 4px 0 8px 0;
+  color: #d93025; /* Rojo Google-style para errores */
+  font-size: 0.9em; /* Tamaño más pequeño */
+  margin: 4px 0 8px 0; /* Espaciado vertical */
 }
 
+/* ⚠️ Duplicado, puede eliminarse: */
 .mensaje-general {
   margin-top: 15px;
   font-size: 1em;
   font-weight: 600;
-  color: #155724; /* verde para éxito o información */
+  color: #155724;
   background-color: #d4edda;
   border: 1px solid #c3e6cb;
   padding: 10px;
   border-radius: 4px;
+}
+
+/* Subtítulo de sección */
+.subtitulo-seccion {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #333;
+  margin: 30px 0 18px 0;
+}
+
+/* Alineación de nombre y apellidos */
+.fila-nombre-apellidos {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.fila-nombre-apellidos .campo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* === Bloque adicional para mostrar resumen al lado derecho === */
+
+.formulario-resumen-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 0 40px;
+  gap: 24px;
+  flex-wrap: wrap; /* Para adaptar en pantallas pequeñas */
+}
+
+.resumen-container {
+  width: 40%;
+  margin-top: 160px;
+  padding: 24px 28px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.resumen-container h3 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #111;
+}
+
+.resumen-container ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.resumen-container li {
+  margin-bottom: 12px;
+  font-size: 1rem;
+  color: #333;
+  line-height: 1.5;
+}
+
+/* Responsive para pantallas menores a 900px */
+@media (max-width: 900px) {
+  .formulario-resumen-container {
+    flex-direction: column;
+    padding: 0 20px;
+  }
+
+  .form-container,
+  .resumen-container {
+    width: 100%;
+    margin: 20px 0;
+  }
 }
 

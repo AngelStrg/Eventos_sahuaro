@@ -13,6 +13,7 @@ import { FooterComponent } from '../footer/footer.component';
 })
 export class ReservationComponent {
   nombre: string = '';
+  apellidos: string = '';
   correo: string = '';
   telefono: string = '';
   fecha: string = '';
@@ -25,23 +26,26 @@ export class ReservationComponent {
   extras: string[] = [];
   horasExtras: number = 0;
 
+  resumen: { label: string; valor: any }[] = [];
+
   horasDisponibles = [
-    { value: '08', display: '8:00 am' },
-    { value: '09', display: '9:00 am' },
-    { value: '10', display: '10:00 am' },
-    { value: '11', display: '11:00 am' },
-    { value: '12', display: '12:00 pm' },
-    { value: '13', display: '1:00 pm' },
-    { value: '14', display: '2:00 pm' },
-    { value: '15', display: '3:00 pm' },
-    { value: '16', display: '4:00 pm' },
-    { value: '17', display: '5:00 pm' },
-    { value: '18', display: '6:00 pm' },
-    { value: '19', display: '7:00 pm' },
-    { value: '20', display: '8:00 pm' },
+    { value: '08:00 am', display: '08:00 am' },
+    { value: '09:00 am', display: '09:00 am' },
+    { value: '10:00 am', display: '10:00 am' },
+    { value: '11:00 am', display: '11:00 am' },
+    { value: '12:00 pm', display: '12:00 pm' },
+    { value: '01:00 pm', display: '01:00 pm' },
+    { value: '02:00 pm', display: '02:00 pm' },
+    { value: '03:00 pm', display: '03:00 pm' },
+    { value: '04:00 pm', display: '04:00 pm' },
+    { value: '05:00 pm', display: '05:00 pm' },
+    { value: '06:00 pm', display: '06:00 pm' },
+    { value: '07:00 pm', display: '07:00 pm' },
+    { value: '08:00 pm', display: '08:00 pm' }
   ];
 
   errorNombre = '';
+  errorApellidos = '';
   errorCorreo = '';
   errorTelefono = '';
   errorFecha = '';
@@ -57,13 +61,23 @@ export class ReservationComponent {
       return;
     }
 
-    const horaInicioNum = parseInt(this.horaInicio, 10);
-    let finNum = horaInicioNum + 6 + this.horasExtras;
+    const partes = this.horaInicio.split(':');
+    let horaInicioNum = parseInt(partes[0], 10);
+    const sufijo = this.horaInicio.includes('pm') ? 'pm' : 'am';
 
+    if (sufijo === 'pm' && horaInicioNum !== 12) {
+      horaInicioNum += 12;
+    }
+    if (sufijo === 'am' && horaInicioNum === 12) {
+      horaInicioNum = 0;
+    }
+
+    let finNum = horaInicioNum + 6 + this.horasExtras;
     if (finNum > 26) finNum = 26;
     if (finNum >= 24) finNum = finNum - 24;
 
     this.horaFin = this.formatearHora12(finNum);
+    this.actualizarResumen();
   }
 
   formatearHora12(hora24: number): string {
@@ -79,7 +93,7 @@ export class ReservationComponent {
       sufijo = 'pm';
     }
 
-    return `${hora}:00 ${sufijo}`;
+    return `${hora.toString().padStart(2, '0')}:00 ${sufijo}`;
   }
 
   toggleExtra(extra: string, event: any) {
@@ -88,6 +102,7 @@ export class ReservationComponent {
     } else {
       this.extras = this.extras.filter(e => e !== extra);
     }
+    this.actualizarResumen();
   }
 
   validarTipoEvento() {
@@ -95,17 +110,27 @@ export class ReservationComponent {
       this.tipoEvento === 'XV Años'
         ? 'Por el tipo de evento XV Años, los precios pueden variar debido a contratación de seguridad.'
         : '';
+    this.actualizarResumen();
   }
 
   obtenerHorasExtraDisponibles(): number[] {
     if (!this.horaInicio) return [0];
 
-    const horaInicioNum = parseInt(this.horaInicio, 10);
-    const maxExtras = Math.max(0, 26 - (horaInicioNum + 6)); // Máximo hasta hora 26 (2:00 am)
-    return Array.from({ length: maxExtras + 1 }, (_, i) => i); // [0,1,2,...]
+    const partes = this.horaInicio.split(':');
+    let horaInicioNum = parseInt(partes[0], 10);
+    const sufijo = this.horaInicio.includes('pm') ? 'pm' : 'am';
+
+    if (sufijo === 'pm' && horaInicioNum !== 12) {
+      horaInicioNum += 12;
+    }
+    if (sufijo === 'am' && horaInicioNum === 12) {
+      horaInicioNum = 0;
+    }
+
+    const maxExtras = Math.max(0, 26 - (horaInicioNum + 6));
+    return Array.from({ length: maxExtras + 1 }, (_, i) => i);
   }
 
-  // **CORRECCIÓN: método para actualizar horasExtras y refrescar horaFin**
   onHorasExtrasChange(valor: any) {
     this.horasExtras = Number(valor) || 0;
     this.actualizarHoraFin();
@@ -166,6 +191,25 @@ export class ReservationComponent {
     }
 
     this.mensajeGeneral = 'Formulario enviado correctamente. ¡Gracias por tu reservación!';
+    this.actualizarResumen();
+  }
+
+  actualizarResumen() {
+    this.resumen = [
+      { label: 'Nombre', valor: this.nombre + ' ' + this.apellidos },
+      { label: 'Correo', valor: this.correo },
+      { label: 'Teléfono', valor: this.telefono },
+      { label: 'Fecha del Evento', valor: this.fecha },
+      { label: 'Personas', valor: this.personas },
+      { label: 'Tipo de Evento', valor: this.tipoEvento },
+      { label: 'Con/ Sin Alberca', valor: this.alberca },
+      { label: 'Hora Inicio', valor: this.horaInicio },
+      { label: 'Hora Fin', valor: this.horaFin },
+      { label: 'Color del Mantel', valor: this.colorMantel },
+      { label: 'Extras', valor: this.extras.join(', ') || 'Ninguno' },
+    ];
   }
 }
+
+
 
