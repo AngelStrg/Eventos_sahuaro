@@ -51,7 +51,7 @@ svg {
 
 /* Título principal */
 h3 {
-  color: #4CAF50;
+  color: #6D9A45;
   font-size: 2.5rem;
   font-weight: bold;
   display: flex;
@@ -84,13 +84,13 @@ h3 svg {
   align-items: center;
   background: #fff;
   border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  box-shadow: 0 2px 8px rgba(44, 146, 24, 0.322);
   width: 700px;
   max-width: 95vw;
   padding: 20px;
   margin-bottom: 0;
-  color: #222;
-  transition: box-shadow 0.3s;
+  color: #222222;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .service.reverse {
@@ -124,7 +124,7 @@ h3 svg {
 .service-text h4 {
   margin: 0 0 10px 0;
   font-size: 22px;
-  color: #4CAF50;
+  color: #6D9A45;
 }
 
 .service-text p {
