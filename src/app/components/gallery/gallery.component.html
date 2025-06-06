@@ -1,0 +1,25 @@
+<app-nav-bar></app-nav-bar>
+<section class="gallery-hero">
+  <h1>Galería de Imágenes</h1>
+  <p>Explora nuestra colección de fotos de eventos y naturaleza. ¡Todas las imágenes son responsivas!</p>
+</section>
+
+<section class="gallery-tags">
+  <button 
+    [class.active]="selectedCategory === cat"
+    *ngFor="let cat of categories"
+    (click)="selectCategory(cat)">
+    {{cat}}
+  </button>
+  <button 
+    [class.active]="selectedCategory === 'Todas'"
+    (click)="selectCategory('Todas')">
+    Todas
+  </button>
+</section>
+
+<section class="gallery-grid">
+  <img *ngFor="let img of filteredImages" [src]="img.src" [alt]="img.alt">
+</section>
+
+<app-footer></app-footer>
