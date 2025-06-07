@@ -7,11 +7,12 @@ import { OurServiceComponent } from './components/our-service/our-service.compon
 import { RouterModule } from '@angular/router';
 import { LocationComponent } from './components/location/location.component';
 import { OurAddServiceComponent } from './components/our-add-service/our-add-service.component';
+import { GalleryComponent } from './components/gallery/gallery.component';
 
 @Component({
   selector: 'app-root',
   imports: [NavBarComponent, FooterComponent, CarouselComponent, RouterOutlet, 
-    OurServiceComponent, RouterModule, LocationComponent, OurAddServiceComponent],
+    OurServiceComponent, RouterModule, LocationComponent, OurAddServiceComponent, GalleryComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
