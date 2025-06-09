@@ -40,6 +40,17 @@
       <p>Fresa, Mango, Naranja y Moka</p>
     </div>
   </div>
+  <div class="service">
+    <div *ngFor="let servicio of servicios">
+      <div>
+        <img [src]="servicio.imagen" alt="{{ servicio.id }}"/>
+        <div>
+          <h5>{{ servicio.id }}</h5>
+          <p>{{ servicio.descripcion }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 <section class="containersvg">
   <div class="svg-row">
