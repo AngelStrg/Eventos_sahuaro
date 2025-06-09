@@ -114,7 +114,7 @@
 
       <div class="mensaje-general" *ngIf="mensajeGeneral">{{ mensajeGeneral }}</div>
 
-      <button type="submit">Enviar</button>
+      <button [routerLink]="['/app-summary']" routerLinkActive="routerLinkActive" type="submit">Enviar</button>
     </form>
   </div>
 
@@ -136,11 +136,6 @@
           style="display:inline-block;width:15px;height:15px;border:1px solid #ccc;margin-left:5px;"></span>
       </li>
       <li><strong>Extras:</strong> {{ extras.join(', ') || 'Ninguno' }}</li>
-
-      <button (click)="onCancelarReservacion()" class="cancelar-btn">
-        Cancelar Reservación
-      </button>
-
     </ul>
   </div>
 </div>

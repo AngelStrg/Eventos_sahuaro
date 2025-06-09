@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { NavBarComponent } from '../nav-bar/nav-bar.component';
 import { FooterComponent } from '../footer/footer.component';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-reservation',
   standalone: true,
-  imports: [CommonModule, FormsModule, NavBarComponent, FooterComponent],
+  imports: [CommonModule, FormsModule, NavBarComponent, FooterComponent, RouterLink],
   templateUrl: './reservation.component.html',
   styleUrls: ['./reservation.component.css']
 })
@@ -209,28 +210,4 @@ export class ReservationComponent {
       { label: 'Extras', valor: this.extras.join(', ') || 'Ninguno' },
     ];
   }
-
-  onCancelarReservacion() {
-    const confirmar = confirm('¿Estás seguro de que deseas cancelar la reservación?');
-    if (confirmar) {
-      this.eliminarReservacion();
-    }
-  }
-
-  eliminarReservacion() {
-    // Aquí va tu lógica para cancelar la reservación
-    console.log("Reservación cancelada.");
-
-    // Ejemplo: limpiar el contenido del resumen
-    const resumen = document.getElementById('resumen-reservacion');
-    if (resumen) {
-      resumen.innerHTML = '<p>Reservación cancelada.</p>';
-    }
-
-    // Si tienes lógica de backend, puedes llamar a un servicio aquí
-    // this.reservationService.cancelar().subscribe(...)
-  }
 }
-
-
-
