@@ -20,12 +20,28 @@ export class SearchReservationComponent {
   correoBusqueda: string = '';
   eventoEncontrado: Dates | null = null;
   busquedaRealizada: boolean = false;
+  correoInvalido: boolean = false;
+  correoVacio: boolean = false;
+
 
   buscarPorCorreo() {
     const correo = this.correoBusqueda.trim().toLowerCase();
 
+    this.correoInvalido = false;
+    this.correoVacio = false;
+    this.busquedaRealizada = false;
+    this.eventoEncontrado = null;
+
+    /// Validar si el campo está vacío
     if (!correo) {
-      alert('Por favor ingrese un correo para buscar.');
+      this.correoVacio = true;
+      return;
+    }
+
+    // Validar formato de correo
+    const correoRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+    if (!correoRegex.test(correo)) {
+      this.correoInvalido = true;
       return;
     }
 

@@ -1,24 +1,51 @@
-#buscador{
-    margin-top: 110px;
+#buscador {
+    margin-top: 150px;
     text-align: center;
+
 }
 
 input[type="email"] {
-      width: 25%;
-      padding: 10px;
-      font-size: 16px;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    width: 25%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.logo{
+.logo {
     all: unset;
-  cursor: pointer;
+    cursor: pointer;
 }
 
-.titulo{
+.titulo {
     font-size: 30px;
     font-family: 'Times New Roman', Times, serif;
 }
 
+/* Listado de eventos */
+.evento {
+    font-family: 'Times New Roman', Times, serif;
+    background-color: #F9FFF4;
+    border-left: 6px solid #6D9A45;
+    padding: 16px 20px;
+    border-radius: 6px;
+    color: #6D9A45;
+    max-width: 720px;
+    margin: 0 auto 30px auto;
+    margin-top: 50px;
+}
+
+.linea {
+  border: none;
+  height: 3px;
+  background-color: #ccc;
+  margin: 20px 0;
+  margin-top: 65px;
+}
+
+.error {
+  color: red;
+  font-size: 0.9rem;
+  margin-top: 5px;
+}
