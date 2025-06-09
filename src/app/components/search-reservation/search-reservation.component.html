@@ -4,14 +4,32 @@
     <div>
         <p class="titulo">Consulta tu reserva con tu correo electrónico: </p>
 
-        <button (click)="buscarReserva()" aria-label="Buscar" class="logo"> <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-search"
-                viewBox="0 0 16 16" style="margin-right: 15px;">
+        <button class="logo" (click)="buscarPorCorreo()"> <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                fill="currentColor" class="bi bi-search" viewBox="0 0 16 16" style="margin-right: 15px;">
                 <path
                     d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
-            </svg> </button> <input type="email" id="inputBuscador" placeholder="Buscar mi reserva">
+            </svg> </button> <input type="email" id="inputBuscador" placeholder="Buscar mi reserva"
+            [(ngModel)]="correoBusqueda"  (input)="correoBusqueda = correoBusqueda.toLowerCase()" pattern="[a-z@.]*">
     </div>
 
 
+    <div *ngIf="eventoEncontrado" class="evento-encontrado">
+        <h3>Evento Encontrado:</h3>
+        <p><strong>Nombre:</strong> {{ eventoEncontrado.nombre }} {{ eventoEncontrado.apellidos }}</p>
+        <p><strong>Correo:</strong> {{ eventoEncontrado.correo }}</p>
+        <p><strong>Teléfono:</strong> {{ eventoEncontrado.telefono }}</p>
+        <p><strong>Fecha:</strong> {{ eventoEncontrado.fecha }}</p>
+        <p><strong>Tipo de Evento:</strong> {{ eventoEncontrado.tipoEvento }}</p>
+        <p><strong>Hora Inicio:</strong> {{ eventoEncontrado.horaInicio + ':00' }}</p>
+        <p><strong>Hora Fin:</strong> {{ eventoEncontrado.horaFin }}</p>
+        <p><strong>Numero de personas:</strong> {{ eventoEncontrado.personas }}</p>
+        <p><strong>Alberca:</strong> {{ eventoEncontrado.alberca }}</p>
+        <p><strong>Color de Mantel:</strong> {{ eventoEncontrado.colorMantel }}</p>
+        <p><strong>Extras:</strong> {{ eventoEncontrado.extras?.join(', ') }}</p>
+    </div>
 
+    <div *ngIf="busquedaRealizada && !eventoEncontrado">
+        <p>No se encontró ningún evento con ese correo.</p>
+    </div>
 </section>
 <app-footer></app-footer>

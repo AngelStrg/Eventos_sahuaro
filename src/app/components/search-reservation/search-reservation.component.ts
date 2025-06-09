@@ -1,29 +1,51 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { NavBarComponent } from '../nav-bar/nav-bar.component';
 import { FooterComponent } from '../footer/footer.component';
 import { RouterModule } from '@angular/router';
+import { Dates } from '../../models/dates.interface';
+import { Firestore, collection, collectionData } from '@angular/fire/firestore';
+
 
 @Component({
   selector: 'app-search-reservation',
-  imports: [CommonModule, NavBarComponent, FooterComponent, RouterModule],
+  imports: [CommonModule, NavBarComponent, FooterComponent, RouterModule, FormsModule],
   templateUrl: './search-reservation.component.html',
   styleUrl: './search-reservation.component.css'
 })
 export class SearchReservationComponent {
 
-  correoElectronico: string = '';
+  eventos: Dates[] = [];
+  correoBusqueda: string = '';
+  eventoEncontrado: Dates | null = null;
+  busquedaRealizada: boolean = false;
 
-  buscarReserva(): void {
-    if (!this.correoElectronico || !this.correoElectronico.includes('@')) {
-      alert('Por favor, ingresa un correo electrónico válido.');
+  buscarPorCorreo() {
+    const correo = this.correoBusqueda.trim().toLowerCase();
+
+    if (!correo) {
+      alert('Por favor ingrese un correo para buscar.');
       return;
     }
 
-    // Aquí puedes hacer la llamada al servicio de búsqueda
-    console.log('Buscando reserva para:', this.correoElectronico);
+    // Buscar en la lista local (ya cargada desde Firestore)
+    const encontrado = this.eventos.find(
+      evento => evento.correo.toLowerCase() === correo
+    );
 
-    // Ejemplo de redirección o búsqueda lógica
-    // this.reservaService.buscarPorCorreo(this.correoElectronico).subscribe(...)
+    this.busquedaRealizada = true;
+    this.eventoEncontrado = encontrado || null;
+
+
   }
+
+  constructor(private firestore: Firestore) { }
+  ngOnInit(): void {
+    const eventosRef = collection(this.firestore, 'eventos');
+    collectionData(eventosRef, { idField: 'id' }).subscribe(data => {
+      this.eventos = data as Dates[];
+    });
+  }
+
 }
