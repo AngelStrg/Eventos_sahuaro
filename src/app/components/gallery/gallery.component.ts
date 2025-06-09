@@ -31,6 +31,8 @@ export class GalleryComponent {
     { src: '', alt: 'Imagen 15', category: ''},
   ];
 
+  selectedImage: string | null = null;
+
   get filteredImages() {
     if (this.selectedCategory === 'Todas') {
       return this.images;
@@ -40,5 +42,13 @@ export class GalleryComponent {
 
   selectCategory(cat: string) {
     this.selectedCategory = cat;
+  }
+
+  openImage(src: string) {
+    this.selectedImage = src;
+  }
+
+  closeImage() {
+    this.selectedImage = null;
   }
 }

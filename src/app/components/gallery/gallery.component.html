@@ -19,7 +19,23 @@
 </section>
 
 <section class="gallery-grid">
-  <img *ngFor="let img of filteredImages" [src]="img.src" [alt]="img.alt">
+  <img 
+    *ngFor="let img of filteredImages" 
+    [src]="img.src" 
+    [alt]="img.alt"
+    (click)="openImage(img.src)"
+    style="cursor:pointer"
+  >
 </section>
+
+<!-- Modal para vista ampliada -->
+<div 
+  class="lightbox" 
+  *ngIf="selectedImage" 
+  (click)="closeImage()"
+>
+  <img [src]="selectedImage" alt="Vista ampliada" (click)="$event.stopPropagation()">
+  <span class="close-btn" (click)="closeImage()">&times;</span>
+</div>
 
 <app-footer></app-footer>
