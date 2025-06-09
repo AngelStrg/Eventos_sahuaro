@@ -209,6 +209,27 @@ export class ReservationComponent {
       { label: 'Extras', valor: this.extras.join(', ') || 'Ninguno' },
     ];
   }
+
+  onCancelarReservacion() {
+    const confirmar = confirm('¿Estás seguro de que deseas cancelar la reservación?');
+    if (confirmar) {
+      this.eliminarReservacion();
+    }
+  }
+
+  eliminarReservacion() {
+    // Aquí va tu lógica para cancelar la reservación
+    console.log("Reservación cancelada.");
+
+    // Ejemplo: limpiar el contenido del resumen
+    const resumen = document.getElementById('resumen-reservacion');
+    if (resumen) {
+      resumen.innerHTML = '<p>Reservación cancelada.</p>';
+    }
+
+    // Si tienes lógica de backend, puedes llamar a un servicio aquí
+    // this.reservationService.cancelar().subscribe(...)
+  }
 }
 
 

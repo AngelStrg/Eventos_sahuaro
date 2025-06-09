@@ -64,7 +64,8 @@
       </select>
       <div class="mensaje-error" *ngIf="errorHoraInicio">{{ errorHoraInicio }}</div>
 
-      <select *ngIf="horaInicio" [(ngModel)]="horasExtras" name="horasExtras" (ngModelChange)="onHorasExtrasChange($event)">
+      <select *ngIf="horaInicio" [(ngModel)]="horasExtras" name="horasExtras"
+        (ngModelChange)="onHorasExtrasChange($event)">
         <option *ngFor="let h of obtenerHorasExtraDisponibles()" [value]="h">
           {{ h }} hora{{ h === 1 ? '' : 's' }}
         </option>
@@ -131,12 +132,17 @@
       <li><strong>Hora de Inicio:</strong> {{ horaInicio }}</li>
       <li><strong>Hora de Fin:</strong> {{ horaFin }}</li>
       <li><strong>Color del Mantel:</strong>
-        <span [style.backgroundColor]="colorMantel" style="display:inline-block;width:15px;height:15px;border:1px solid #ccc;margin-left:5px;"></span>
+        <span [style.backgroundColor]="colorMantel"
+          style="display:inline-block;width:15px;height:15px;border:1px solid #ccc;margin-left:5px;"></span>
       </li>
       <li><strong>Extras:</strong> {{ extras.join(', ') || 'Ninguno' }}</li>
+
+      <button (click)="onCancelarReservacion()" class="cancelar-btn">
+        Cancelar Reservación
+      </button>
+
     </ul>
   </div>
 </div>
 
 <app-footer></app-footer>
-
