@@ -11,4 +11,19 @@ import { RouterModule } from '@angular/router';
   styleUrl: './search-reservation.component.css'
 })
 export class SearchReservationComponent {
+
+  correoElectronico: string = '';
+
+  buscarReserva(): void {
+    if (!this.correoElectronico || !this.correoElectronico.includes('@')) {
+      alert('Por favor, ingresa un correo electrónico válido.');
+      return;
+    }
+
+    // Aquí puedes hacer la llamada al servicio de búsqueda
+    console.log('Buscando reserva para:', this.correoElectronico);
+
+    // Ejemplo de redirección o búsqueda lógica
+    // this.reservaService.buscarPorCorreo(this.correoElectronico).subscribe(...)
+  }
 }
