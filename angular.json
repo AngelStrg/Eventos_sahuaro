@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Eventos_Sahuaro": {
+    "eventos-sahuaro": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -64,10 +64,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "Eventos_Sahuaro:build:production"
+              "buildTarget": "eventos-sahuaro:build:production"
             },
             "development": {
-              "buildTarget": "Eventos_Sahuaro:build:development"
+              "buildTarget": "eventos-sahuaro:build:development"
             }
           },
           "defaultConfiguration": "development"

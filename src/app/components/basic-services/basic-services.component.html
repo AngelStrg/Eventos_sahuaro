@@ -24,7 +24,8 @@
     <img src="Juegos_Infantiles_2.jpg" alt="Area de recreación infantil" />
     <div class="service-text">
       <h4>Area Infantil</h4>
-      <p>Un amplio jardín con cama elástica, resbaladillas, columpios y esfera giratoría, garantizando diversión para todas las edades.</p>
+      <p>Un amplio jardín con cama elástica, resbaladillas, columpios y esfera giratoría, garantizando diversión para
+        todas las edades.</p>
     </div>
   </div>
   <div class="service">
@@ -55,6 +56,17 @@
     <div class="service-text">
       <h4>Equipo de sonido</h4>
       <p>Bocina Bluetooth para ambientar el evento con música a elección del cliente.</p>
+    </div>
+  </div>
+  <div class="service">
+    <div *ngFor="let servicio of servicios">
+      <div>
+        <img [src]="servicio.imagen" alt="{{ servicio.id }}" />
+        <div>
+          <h5>{{ servicio.id }}</h5>
+          <p>{{ servicio.descripcion }}</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
