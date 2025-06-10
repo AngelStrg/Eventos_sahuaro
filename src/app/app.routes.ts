@@ -20,14 +20,14 @@ import { TerminosComponent } from './terminos/terminos.component';
 
 export const routes: Routes = [
   { path:'', component: BaseServiceComponent, title: 'Base Service' },
-  { path: 'location', component: LocationComponent, title: 'Location' },
-  { path: 'our-add-service', component: OurAddServiceComponent, title: 'Our Add Service' },
-  { path: 'app-basic-services', component: BasicServicesComponent, title: 'Basic Services' },
-  { path: 'app-reservation', component: ReservationComponent, title: 'Reservation' },
+  { path: 'location', component: LocationComponent, title: 'Nuestra ubicación' },
+  { path: 'our-add-service', component: OurAddServiceComponent, title: 'Servicios adicionales' },
+  { path: 'app-basic-services', component: BasicServicesComponent, title: 'Nuestros servicios' },
+  { path: 'app-reservation', component: ReservationComponent, title: 'Reservación' },
   { path: 'app-inperson-reservation', component: InpersonReservationComponent, title: 'In Person Reservation' },
-  { path: 'app-budget', component: BudgetComponent, title: 'Budget' },
-  { path: 'app-about-us', component: AboutUsComponent, title: 'About Us' },
-  { path: 'app-gallery', component: GalleryComponent, title: 'Gallery'},
+  { path: 'app-budget', component: BudgetComponent, title: 'Costos' },
+  { path: 'app-about-us', component: AboutUsComponent, title: 'Sobre nosotros' },
+  { path: 'app-gallery', component: GalleryComponent, title: 'Galeria'},
 
   {path: 'app-summary', component: SummaryComponent, title: 'Resumen'},
   {path: 'app-search-reservation', component: SearchReservationComponent, title: 'Buscar reserva'},
