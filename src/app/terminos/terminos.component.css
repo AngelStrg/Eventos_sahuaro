@@ -1,0 +1,56 @@
+.terminos-container {
+  max-width: 800px;
+  margin: 120px auto 40px auto;
+  background: #8ec15a; /* Verde tenue */
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(124,160,90,0.10);
+  padding: 32px 24px;
+}
+
+.terminos-container h2 {
+  color: #fff;
+  font-size: 2.2rem;
+  margin-bottom: 24px;
+  text-align: center;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.terminos-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.terminos-list li {
+  background: #fff;
+  margin-bottom: 18px;
+  padding: 18px 16px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(124,160,90,0.06);
+  font-size: 1.1rem;
+  color: #222;
+  line-height: 1.6;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.terminos-list li strong {
+  color: #7ca05a;
+  margin-right: 8px;
+  font-size: 1.1rem;
+}
+
+.btn-regresar {
+  display: inline-block;
+  background: #7ca05a;
+  color: #fff;
+  padding: 10px 32px;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.2s;
+  margin-top: 16px;
+}
+.btn-regresar:hover {
+  background: #4CAF50;
+}

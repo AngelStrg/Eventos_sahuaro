@@ -327,3 +327,60 @@ button:hover {
   }
 }
 
+
+.cancelar-btn {
+  margin-top: 1rem;
+  padding: 10px 20px;
+  background-color: #e63946;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.cancelar-btn:hover {
+  background-color: #d62828;
+}
+
+.terminos-checkbox label {
+  display: flex;
+  align-items: center;
+  font-size: 1.1rem; /* Más pequeño */
+  color: #7ca05a;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  cursor: pointer;
+  margin-bottom: 12px;
+}
+
+.terminos-checkbox input[type="checkbox"] {
+  display: none;
+}
+
+.custom-check {
+  width: 20px;   /* Más pequeño */
+  height: 20px;
+  background: #7ca05a;
+  border-radius: 4px;
+  display: inline-block;
+  margin-right: 10px;
+  position: relative;
+}
+
+.terminos-checkbox input[type="checkbox"]:checked + .custom-check::after {
+  content: '✔';
+  color: #fff;
+  font-size: 1rem; /* Más pequeño */
+  position: absolute;
+  left: 3px;
+  top: 0px;
+}
+
+.terminos-text {
+  font-size: 1.1rem; /* Más pequeño */
+  color: #7ca05a;
+  font-weight: 500;
+  text-decoration: underline;
+  cursor: pointer;
+}
+

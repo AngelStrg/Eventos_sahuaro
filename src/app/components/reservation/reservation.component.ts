@@ -3,12 +3,11 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { NavBarComponent } from '../nav-bar/nav-bar.component';
 import { FooterComponent } from '../footer/footer.component';
-import { RouterLink } from '@angular/router';
-
+import { RouterModule } from '@angular/router';
 @Component({
   selector: 'app-reservation',
   standalone: true,
-  imports: [CommonModule, FormsModule, NavBarComponent, FooterComponent, RouterLink],
+  imports: [CommonModule, FormsModule, NavBarComponent, FooterComponent, RouterModule],
   templateUrl: './reservation.component.html',
   styleUrls: ['./reservation.component.css']
 })
@@ -26,6 +25,7 @@ export class ReservationComponent {
   colorMantel: string = '#fff';
   extras: string[] = [];
   horasExtras: number = 0;
+  aceptaTerminos = false;
 
   resumen: { label: string; valor: any }[] = [];
 

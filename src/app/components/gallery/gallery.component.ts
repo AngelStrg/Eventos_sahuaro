@@ -23,12 +23,24 @@ export class GalleryComponent {
     { src: 'Alberca.jpg', alt: 'Imagen 7', category: 'Lugares recreativos' },
     { src: 'Mesa_2.jpg', alt: 'Imagen 8', category: 'Servicios' },
     { src: 'Carousel_4.JPG', alt: 'Imagen 9', category: 'Servicios'},
-    { src: '', alt: 'Imagen 10', category: ''},
-    { src: '', alt: 'Imagen 11', category: ''},
-    { src: '', alt: 'Imagen 12', category: ''},
-    { src: '', alt: 'Imagen 13', category: ''},
-    { src: '', alt: 'Imagen 14', category: ''},
-    { src: '', alt: 'Imagen 15', category: ''},
+    { src: 'Exterior_1.jpg', alt: 'Imagen 10', category: 'Exterior' },
+    { src: 'Exterior_2.jpg', alt: 'Imagen 11', category: 'Exterior'},
+    { src: 'Exterior_4.jpg', alt: 'Imagen 12', category: 'Exterior'},
+    { src: 'Recreativo_1.jpg', alt: 'Imagen 13', category: 'Lugares recreativos'},
+    { src: 'Servicio_1.jpg', alt: 'Imagen 14', category: 'Servicios'},
+    { src: 'Interior_1.jpg', alt: 'Imagen 15', category: 'Interior'},
+    { src: 'Interior_2.jpg', alt: 'Imagen 16', category: 'Interior'},
+    { src: 'Interior_3.jpg', alt: 'Imagen 17', category: 'Interior'},
+    { src: 'Interior_4.jpg', alt: 'Imagen 18', category: 'Interior'},
+    { src: 'Interior_5.jpg', alt: 'Imagen 19', category: 'Interior'},
+    { src: 'Interior_6.jpg', alt: 'Imagen 20', category: 'Interior'},
+    { src: 'Interior_7.jpg', alt: 'Imagen 21', category: 'Interior'},
+    { src: 'Interior_8.jpg', alt: 'Imagen 22', category: 'Interior'},
+    { src: 'Interior_9.jpg', alt: 'Imagen 23', category: 'Interior'},
+    { src: 'Interior_10.jpg', alt: 'Imagen 24', category:'Servicios'}
+    
+
+
   ];
 
   selectedImage: string | null = null;

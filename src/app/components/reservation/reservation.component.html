@@ -114,7 +114,14 @@
 
       <div class="mensaje-general" *ngIf="mensajeGeneral">{{ mensajeGeneral }}</div>
 
-      <button [routerLink]="['/app-summary']" routerLinkActive="routerLinkActive" type="submit">Enviar</button>
+      <div class="terminos-checkbox">
+        <label>
+          <input type="checkbox" [(ngModel)]="aceptaTerminos" name="aceptaTerminos" />
+          <span class="custom-check"></span>
+          <a [routerLink]="['/app-terminos']" class="terminos-text">Términos y condiciones</a>
+        </label>
+      </div>
+      <button type="submit" [disabled]="!aceptaTerminos">Enviar</button>
     </form>
   </div>
 

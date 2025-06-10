@@ -11,8 +11,12 @@ import { BudgetComponent } from './components/budget/budget.component';
 import { InpersonReservationComponent } from './components/inperson-reservation/inperson-reservation.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { GalleryComponent } from './components/gallery/gallery.component';
+
 import { SummaryComponent } from './components/summary/summary.component';
 import { SearchReservationComponent } from './components/search-reservation/search-reservation.component';
+
+import { TerminosComponent } from './terminos/terminos.component';
+
 
 export const routes: Routes = [
   { path:'', component: BaseServiceComponent, title: 'Base Service' },
@@ -24,9 +28,12 @@ export const routes: Routes = [
   { path: 'app-budget', component: BudgetComponent, title: 'Budget' },
   { path: 'app-about-us', component: AboutUsComponent, title: 'About Us' },
   { path: 'app-gallery', component: GalleryComponent, title: 'Gallery'},
-  {path: 'app-summary', component: SummaryComponent, title: 'Resumen'},
-  {path: 'app-search-reservation', component: SearchReservationComponent, title: 'Buscar reserva'}
 
+  {path: 'app-summary', component: SummaryComponent, title: 'Resumen'},
+  {path: 'app-search-reservation', component: SearchReservationComponent, title: 'Buscar reserva'},
+
+
+  { path: 'app-terminos', component: TerminosComponent, title: 'Términos y Condiciones' }
 
 ];
 

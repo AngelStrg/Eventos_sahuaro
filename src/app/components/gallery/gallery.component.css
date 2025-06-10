@@ -1,9 +1,11 @@
 .gallery-hero {
-  background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('/assets/hero.jpg') center/cover no-repeat;
+  background: #4CAF50;
   color: #fff;
   padding: 60px 20px 40px 20px;
   text-align: center;
-  margin-top: 110px; /* Espacio para la navbar */
+
+  margin-top: 80px; /* <-- Agrega o ajusta este valor según la altura de tu navbar */
+
 }
 
 .gallery-hero h1 {
@@ -39,7 +41,9 @@
 
 .gallery-tags button.active,
 .gallery-tags button:hover {
+
   background: #78A64B;     /* verde claro activo */
+
   color: #fff;
   border-color: #6D8C4D;   /* verde medio oscuro */
 }
