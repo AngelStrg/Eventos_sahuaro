@@ -95,7 +95,7 @@ export class ReservationComponent {
       sufijo = 'pm';
     }
 
-    return `${hora.toString().padStart(2, '0')}:00 ${sufijo}`;
+   return `${hora.toString().padStart(2, '0')}:00 ${sufijo}`; 
   }
 
   toggleExtra(extra: string, event: any) {
