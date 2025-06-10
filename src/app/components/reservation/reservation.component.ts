@@ -4,10 +4,11 @@ import { FormsModule } from '@angular/forms';
 import { NavBarComponent } from '../nav-bar/nav-bar.component';
 import { FooterComponent } from '../footer/footer.component';
 import { RouterModule } from '@angular/router';
+import { RouterLink } from '@angular/router';
 @Component({
   selector: 'app-reservation',
   standalone: true,
-  imports: [CommonModule, FormsModule, NavBarComponent, FooterComponent, RouterModule],
+  imports: [CommonModule, FormsModule, NavBarComponent, FooterComponent, RouterModule, RouterLink],
   templateUrl: './reservation.component.html',
   styleUrls: ['./reservation.component.css']
 })
