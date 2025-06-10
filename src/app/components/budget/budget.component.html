@@ -1,44 +1,52 @@
 <app-nav-bar></app-nav-bar>
+<div class="budget-table-container">
+  <h2>Lista de Costos</h2>
 
-<!-- Tabla de presupuestos -->
-<section class="budget-table-section">
-  <table class="budget-table">
-    <thead>
-      <tr>
-        <th>Personas</th>
-        <th>Precios con alberca</th>
-        <th>Precios sin alberca</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>5 a 25</td>
-        <td>$4400</td>
-        <td>$3900</td>
-      </tr>
-      <tr>
-        <td>26 a 50</td>
-        <td>$5400</td>
-        <td>$4900</td>
-      </tr>
-      <tr>
-        <td>51 a 80</td>
-        <td>$5900</td>
-        <td>$5400</td>
-    </tr>
-    <tr>
-        <td>81 a 100</td>
-        <td>$6900</td>
-        <td>$6400</td>
-    </tr>
-    <tr>
-        <td>101 a 150</td>
-        <td>$7900</td>
-        <td>$7400</td>
-    </tr>
-    </tbody>
+  <div *ngFor="let costo of costos" class="table-wrapper">
+    <table class="budget-table">
+      <thead>
+        <tr>
+          <th>Paquete</th>
+          <th>Con Alberca</th>
+          <th>Sin Alberca</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>5 a 25 personas</td>
+          <td>$ {{ costo.p1_with_pool }} </td>
+          <td>$ {{ costo.p1_without_pool }}</td>
+        </tr>
+        <tr>
+          <td>26 a 50 personas</td>
+          <td>$ {{ costo.p2_with_pool }}</td>
+          <td>$ {{ costo.p2_without_pool }}</td>
+        </tr>
+        <tr>
+          <td>51 a 80 personas</td>
+          <td>$ {{ costo.p3_with_pool }}</td>
+          <td>$ {{ costo.p3_without_pool }}</td>
+        </tr>
+        <tr>
+          <td>81 a 100 personas</td>
+          <td>$ {{ costo.p4_with_pool }}</td>
+          <td>$ {{ costo.p4_without_pool }}</td>
+        </tr>
+        <tr>
+          <td>101 a 150 personas</td>
+          <td>$ {{ costo.p5_with_pool }}</td>
+          <td>$ {{ costo.p5_without_pool }}</td>
+        </tr>
+      </tbody>
     </table>
-    <div class="budget-brush"></div>
+  </div>
+</div>
+
+<section class="aviso-precios">
+  <p>
+    ⚠️ <strong>Aviso:</strong> Los precios pueden variar si el evento es <strong>XV Años</strong>, ya que se debe contratar servicio de <strong>seguridad adicional</strong>.
+  </p>
 </section>
+
 
 <app-footer> </app-footer>

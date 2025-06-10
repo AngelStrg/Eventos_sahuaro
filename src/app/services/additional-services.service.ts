@@ -9,11 +9,6 @@ export class AdditionalServicesService {
 
   constructor(private firestore: Firestore) {}
 
-  addService(service: AdditionalService) {
-    const docRef = doc(this.firestore, `additional-services/${service.id}`);
-    return setDoc(docRef, service);
-  }
-
   getServices(): Observable<AdditionalService[]> {
     const collectionRef = collection(this.firestore, 'additional-services');
     return collectionData(collectionRef, { idField: 'id' }) as Observable<AdditionalService[]>;

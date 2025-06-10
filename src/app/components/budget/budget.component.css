@@ -1,82 +1,79 @@
-.budget-table-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 110px 0 40px 0;
-  background: #f8faf6;
-  padding: 24px 0 0 0;
-  border-radius: 24px;
-  box-shadow: 0 8px 32px rgba(124,160,90,0.10);
-  position: relative;
-  overflow-x: auto;
-  width: 100%;
+.budget-table-container {
+  text-align: center;
+  padding: 2rem 1rem;
+  margin-top: 115px;
 }
 
+.budget-table-container h2 {
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+  color: #2f4f2f;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Envoltura de cada tabla para centrado */
+.table-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+/* Tabla visual mejorada */
 .budget-table {
+  width: 95vw;
+  max-width: 1100px;
   border-collapse: separate;
   border-spacing: 0;
-  width: 98vw;           /* Cambia a casi todo el viewport */
-  max-width: 1200px;     /* Mucho más ancho */
   background: #fff;
-  font-family: 'Segoe UI', Arial, sans-serif;
-  font-size: 1.2rem;
-  box-shadow: 0 4px 24px rgba(124,160,90,0.10);
-  border-radius: 18px 18px 0 0;
-  margin: 0 auto;
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 1.1rem;
+  box-shadow: 0 4px 24px rgba(124,160,90,0.1);
+  border-radius: 12px;
   overflow: hidden;
 }
 
-.budget-table th, .budget-table td {
-  padding: 18px 8px;
-  text-align: center;
-  transition: background 0.2s;
-  word-break: keep-all;
-  border-right: 1.5px solid rgba(124,160,90,0.25); /* Borde lateral difuminado */
-  border-bottom: 1.5px solid rgba(124,160,90,0.18); /* Borde inferior difuminado */
-  box-shadow: 0 1px 8px 0 rgba(124,160,90,0.07) inset; /* Sombra interna suave */
-}
-
-.budget-table th:last-child,
-.budget-table td:last-child {
-  border-right: none; /* Quita el borde derecho en la última columna */
-}
-
+/* Encabezados */
 .budget-table th {
-  background: linear-gradient(90deg, #eaf5df 0%, #f4f8f1 100%);
+  background: #eaf5df;
   color: #4CAF50;
-  font-family: 'Pacifico', cursive, Arial, sans-serif;
-  font-size: 1.3rem;
-  border-bottom: 3px solid #b5cfa3;
-  font-weight: normal;
-  letter-spacing: 1px;
-  /* Puedes agregar sombra superior si quieres más relieve */
+  font-weight: 600;
+  font-size: 1.2rem;
+  padding: 1rem;
+  border-bottom: 2px solid #b5cfa3;
 }
 
+/* Celdas */
 .budget-table td {
-  font-family: 'Caveat', cursive, Arial, sans-serif;
-  font-size: 1.3rem;
-  color: #222;
-  background: #f8faf6;
+  padding: 1rem;
+  border-bottom: 1px solid rgba(124,160,90,0.15);
+  background: #f9fdf5;
 }
 
+/* Última fila sin borde */
 .budget-table tr:last-child td {
   border-bottom: none;
 }
 
-/* Responsive: reduce padding y fuente en móviles */
-@media (max-width: 700px) {
-  .budget-table-section {
-    padding: 8px 0 0 0;
-    border-radius: 10px;
-  }
+/* Responsive */
+@media (max-width: 768px) {
   .budget-table {
-    font-size: 0.95rem;
-    width: 99vw;
-    max-width: 99vw;
-    border-radius: 10px;
-  }
-  .budget-table th, .budget-table td {
-    padding: 8px 2px;
     font-size: 1rem;
+    width: 98vw;
   }
+
+  .budget-table th,
+  .budget-table td {
+    padding: 0.75rem;
+  }
+}
+
+.aviso-precios {
+  background-color: #fff3cd;
+  color: #856404;
+  border: 1px solid #ffeeba;
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 1rem 0;
+  font-size: 1rem;
+  text-align: center;
 }

@@ -58,9 +58,9 @@
       <p>Bocina Bluetooth para ambientar el evento con música a elección del cliente.</p>
     </div>
   </div>
-  <div class="service">
+  
     <div *ngFor="let servicio of servicios">
-      <div>
+      <div class="service">
         <img [src]="servicio.imagen" alt="{{ servicio.id }}" />
         <div>
           <h5>{{ servicio.id }}</h5>
@@ -68,7 +68,7 @@
         </div>
       </div>
     </div>
-  </div>
+    
 </section>
 <section class="containersvg">
   <ul>

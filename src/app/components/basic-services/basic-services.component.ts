@@ -7,14 +7,15 @@ import { OurServiceService } from '../../services/our-service.service';
 import { OurService } from '../../models/our-service.interface';
 @Component({
   selector: 'app-basic-services',
-  imports: [ NavBarComponent, FooterComponent],
+  standalone: true,
+  imports: [ NavBarComponent, FooterComponent, CommonModule ],
   templateUrl: './basic-services.component.html',
-  styleUrls: ['./basic-services.component.css'] // Aquí se enlaza el archivo CSS
+  styleUrl:'./basic-services.component.css'
 })
 export class BasicServicesComponent implements OnInit {
 formulario!: FormGroup;
   servicios: OurService[] = [];
-  cargando = true;
+
 
   constructor(private service: OurServiceService) {}
 
@@ -25,9 +26,8 @@ formulario!: FormGroup;
       imagen: new FormControl('', Validators.required),
     });
 
-    this.service.getServices().subscribe(data => {
-      this.servicios = data;
-      this.cargando = false;
+    this.service.getServices().subscribe(servicios => {
+      this.servicios = servicios;
     });
   }
 
