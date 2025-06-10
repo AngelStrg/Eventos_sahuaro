@@ -28,6 +28,7 @@
         <p><strong>Alberca:</strong> {{ eventoEncontrado.alberca }}</p>
         <p><strong>Color de Mantel:</strong> {{ eventoEncontrado.colorMantel }}</p>
         <p><strong>Extras:</strong> {{ eventoEncontrado.extras?.join(', ') }}</p>
+        <p><strong>Estado:</strong> {{ eventoEncontrado.estado }}</p>
     </div>
 
     <div *ngIf="busquedaRealizada && !eventoEncontrado" class="error">
