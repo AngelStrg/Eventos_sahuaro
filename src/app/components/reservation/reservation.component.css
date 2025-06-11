@@ -128,4 +128,17 @@ button[disabled] {
   cursor: pointer;
 }
 
+.reserva-aviso {
+  background-color: #fff3cd;
+  color: #856404;
+  border: 1px solid #ffeeba;
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 1rem 0;
+  font-size: 1rem;
+  text-align: center;
+}
+
+
+
 

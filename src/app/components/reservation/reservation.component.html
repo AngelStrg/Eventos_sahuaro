@@ -89,13 +89,41 @@
         </label>
       </div>
     
-    
-
-    <button type="submit" [disabled]="form.invalid" [routerLink]="['/app-summary']" >
+    <div class="resumen-container" *ngIf="form">
+  <h3>Resumen de Reservación</h3>
+  <ul>
+    <li><strong>Nombre:</strong> {{ form.value.nombre }} {{ form.value.apellidos }}</li>
+    <li><strong>Correo:</strong> {{ form.value.correo }}</li>
+    <li><strong>Teléfono:</strong> {{ form.value.telefono }}</li>
+    <li><strong>Fecha:</strong> {{ form.value.fecha }}</li>
+    <li><strong>Personas:</strong> {{ form.value.personas }}</li>
+    <li><strong>Tipo de Evento:</strong> {{ form.value.tipoEvento }}</li>
+    <li><strong>Alberca:</strong> {{ form.value.alberca }}</li>
+    <li><strong>Hora de Inicio:</strong> {{ form.value.horaInicio }}</li>
+    <li><strong>Hora de Fin:</strong> {{ form.value.horaFin }}</li>
+    <li>
+  <strong>Color del Mantel:</strong>
+  {{ form.value.colorMantel || 'Ninguno' }}
+</li>
+    <li>
+      <strong>Extras:</strong>
+      {{ (form.value.extras && form.value.extras.length > 0) ? form.value.extras.join(', ') : 'Ninguno' }}
+    </li>
+  </ul>
+</div>
+ <div class="reserva-aviso">
+ <p> La confirmación de su reserva será enviada en un plazo de 24 horas</p>
+  <p>
+    ⚠️ <strong>Aviso:</strong> Para validar su reserva, deberá abonar un mínimo del 50% del costo total. <strong></strong>
+  </p>
+  
+</div>
+    <button type="submit" [disabled]="form.invalid" >
       {{ 'Guardar' }}
     </button>
   </form>
 
+ 
 </div>
 
 <app-footer></app-footer>
