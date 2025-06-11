@@ -2,148 +2,109 @@
 
 <div class="formulario-resumen-container">
   <!-- FORMULARIO -->
-  <div class="form-container">
-    <h2>Reservación de Evento</h2>
+  <form [formGroup]="form" (ngSubmit)="guardarEvento()" class="formulario form-container">
+    <h2>Registrar evento</h2>
 
-    <form (submit)="enviarFormulario(); $event.preventDefault();">
-      <h3 class="subtitulo-seccion">Datos de contacto</h3>
+    <label>Nombre:</label>
+    <input type="text" formControlName="nombre" />
 
-      <div class="fila-nombre-apellidos">
-        <div class="campo">
-          <input type="text" [(ngModel)]="nombre" name="nombre" placeholder="Nombre(s)" />
-          <div class="mensaje-error" *ngIf="errorNombre">{{ errorNombre }}</div>
-        </div>
-        <div class="campo">
-          <input type="text" [(ngModel)]="apellidos" name="apellidos" placeholder="Apellidos" />
-          <div class="mensaje-error" *ngIf="errorApellidos">{{ errorApellidos }}</div>
-        </div>
-      </div>
+    <label>Apellidos:</label>
+    <input type="text" formControlName="apellidos" />
 
-      <input type="email" [(ngModel)]="correo" name="correo" placeholder="Correo electrónico" />
-      <div class="mensaje-error" *ngIf="errorCorreo">{{ errorCorreo }}</div>
+    <label>Correo:</label>
+    <input type="email" formControlName="correo" (input)="onCorreoInput($event)" />
 
-      <input type="tel" [(ngModel)]="telefono" name="telefono" pattern="[0-9]{10}" placeholder="Teléfono" />
-      <div class="mensaje-error" *ngIf="errorTelefono">{{ errorTelefono }}</div>
+    <label>Teléfono:</label>
+    <input type="text" formControlName="telefono" />
 
-      <h3 class="subtitulo-seccion">Detalles del evento</h3>
+    <label>Fecha:</label>
+    <input type="date" formControlName="fecha" />
 
-      <input type="date" [(ngModel)]="fecha" name="fecha" placeholder="Fecha del evento" />
-      <div class="mensaje-error" *ngIf="errorFecha">{{ errorFecha }}</div>
+    <label>Número de personas:</label>
+    <select formControlName="personas">
+      <option value="">Seleccione</option>
+      <option *ngFor="let rango of rangosPersonas" [value]="rango">{{ rango }}</option>
+    </select>
 
-      <select [(ngModel)]="personas" name="personas">
-        <option value="" disabled selected>Número de personas</option>
-        <option value="1-25">1 - 25 personas</option>
-        <option value="26-50">26 - 50 personas</option>
-        <option value="51-75">51 - 75 personas</option>
-        <option value="76-100">76 - 100 personas</option>
-        <option value="101-150">101 - 150 personas</option>
-      </select>
-      <div class="mensaje-error" *ngIf="errorPersonas">{{ errorPersonas }}</div>
+    <label>Tipo de evento:</label>
+    <select formControlName="tipoEvento">
+      <option value="">Seleccione</option>
+      <option *ngFor="let tipo of tiposEvento" [value]="tipo">{{ tipo }}</option>
+    </select>
 
-      <select [(ngModel)]="tipoEvento" name="tipoEvento" (change)="validarTipoEvento()">
-        <option value="" disabled selected>Tipo de evento</option>
-        <option value="Boda">Boda</option>
-        <option value="Bautizo">Bautizo</option>
-        <option value="Cumpleaños">Cumpleaños</option>
-        <option value="Graduación">Graduación</option>
-        <option value="XV Años">XV Años</option>
-        <option value="Otro">Otro</option>
-      </select>
-      <div class="mensaje-error" *ngIf="errorTipoEvento">{{ errorTipoEvento }}</div>
+    <label>¿Con alberca?</label>
+    <select formControlName="alberca">
+      <option value="">Seleccione</option>
+      <option *ngFor="let opcion of opcionesAlberca" [value]="opcion">{{ opcion }}</option>
+    </select>
 
-      <select [(ngModel)]="alberca" name="alberca">
-        <option value="" disabled selected>¿Con alberca?</option>
-        <option value="Con alberca">Con alberca</option>
-        <option value="Sin alberca">Sin alberca</option>
-      </select>
-      <div class="mensaje-error" *ngIf="errorAlberca">{{ errorAlberca }}</div>
-
-      <select [(ngModel)]="horaInicio" name="horaInicio" (change)="actualizarHoraFin()">
-        <option value="">Hora de inicio</option>
-        <option *ngFor="let hora of horasDisponibles" [value]="hora.value">{{ hora.display }}</option>
-      </select>
-      <div class="mensaje-error" *ngIf="errorHoraInicio">{{ errorHoraInicio }}</div>
-
-      <select *ngIf="horaInicio" [(ngModel)]="horasExtras" name="horasExtras"
-        (ngModelChange)="onHorasExtrasChange($event)">
-        <option *ngFor="let h of obtenerHorasExtraDisponibles()" [value]="h">
-          {{ h }} hora{{ h === 1 ? '' : 's' }}
-        </option>
+    <!-- BLOQUE DE HORAS INTEGRADO -->
+    <div class="horas-registro">
+      <label>Hora de inicio:</label>
+      <select formControlName="horaInicio" (change)="actualizarHoraFin()">
+        <option value="">Seleccione</option>
+        <option *ngFor="let hora of horasInicioOptions" [value]="hora">{{ hora + ':00' }}</option>
       </select>
 
-      <input type="text" [(ngModel)]="horaFin" name="horaFin" readonly placeholder="Hora de fin" />
-
-      <div class="color-selector-wrapper">
-        <div class="color-box" [style.backgroundColor]="colorMantel"></div>
-        <select [(ngModel)]="colorMantel" name="colorMantel">
-          <option value="">Color de cubre mantel</option>
-          <option value="#022E5B">Azul Rey</option>
-          <option value="#77A1C8">Azul Cielo</option>
-          <option value="#6EB8BB">Azul Aqua</option>
-          <option value="#B5818D">Rosa</option>
-          <option value="#C08F7E">Durazno</option>
-          <option value="#63001C">Rosa Mexicano</option>
-          <option value="#004143">Verde</option>
-          <option value="#408E8E">Verde agua</option>
-          <option value="#D1D2D7">Plateado</option>
-          <option value="#D9A35D">Dorado</option>
-          <option value="#FAAC01">Amarillo</option>
-          <option value="#C03F00">Naranja</option>
+      <div *ngIf="horaInicio">
+        <label for="horasExtras">Horas Extras:</label>
+        <select
+          id="horasExtras"
+          [value]="horasExtras"
+          (change)="onHorasExtrasChange($event)"
+          class="w-full border rounded-lg px-3 py-2"
+        >
+          <option *ngFor="let extra of obtenerHorasExtraDisponibles()" [value]="extra">
+            {{ extra }}
+          </option>
         </select>
       </div>
 
-      <fieldset class="extras">
-        <legend>Servicios extra</legend>
-        <label>
-          <input type="checkbox" (change)="toggleExtra('Inflable Rosa', $event)" name="extras" value="Inflable Rosa" />
-          Inflable Rosa
-        </label>
-        <label>
-          <input type="checkbox" (change)="toggleExtra('Inflable Rojo', $event)" name="extras" value="Inflable Rojo" />
-          Inflable Rojo
-        </label>
-        <label>
-          <input type="checkbox" (change)="toggleExtra('Palomera', $event)" name="extras" value="Palomera" />
-          Palomera
-        </label>
-        <label>
-          <input type="checkbox" (change)="toggleExtra('Smoothies', $event)" name="extras" value="Smoothies" />
-          Smoothies
-        </label>
-      </fieldset>
-
-      <div class="mensaje-general" *ngIf="mensajeGeneral">{{ mensajeGeneral }}</div>
-
-      <div class="terminos-checkbox">
-        <label>
-          <input type="checkbox" [(ngModel)]="aceptaTerminos" name="aceptaTerminos" />
-          <span class="custom-check"></span>
-          <a [routerLink]="['/app-terminos']" class="terminos-text">Términos y condiciones</a>
-        </label>
+      <div *ngIf="horaFin">
+        <p><strong>Hora de Fin:</strong> {{ horaFin }}</p>
       </div>
-      <button type="submit" [disabled]="!aceptaTerminos">Enviar</button>
-      <button [routerLink]="['/app-summary']" routerLinkActive="routerLinkActive" type="submit">Ver reservacion</button>
-    </form>
-  </div>
+    </div>
+
+    <label>Color de mantel:</label>
+    <select formControlName="colorMantel">
+      <option value="">Seleccione</option>
+      <option *ngFor="let color of coloresMantel" [value]="color" [style.background]="color">
+        {{ color }}
+      </option>
+    </select>
+
+    <label>Extras:</label>
+    <div class="extras">
+      <app-dynamic-add
+        [selectedExtras]="form.value.extras || []"
+        (selectedExtrasChange)="form.get('extras')?.setValue($event)"
+      ></app-dynamic-add>
+    </div>
+
+    <button type="submit" [disabled]="form.invalid">
+      {{ 'Guardar' }}
+    </button>
+  </form>
 
   <!-- RESUMEN -->
   <div class="resumen-container">
     <h3>Resumen de Reservación</h3>
     <ul>
-      <li><strong>Nombre:</strong> {{ nombre }} {{ apellidos }}</li>
-      <li><strong>Correo:</strong> {{ correo }}</li>
-      <li><strong>Teléfono:</strong> {{ telefono }}</li>
-      <li><strong>Fecha:</strong> {{ fecha }}</li>
-      <li><strong>Personas:</strong> {{ personas }}</li>
-      <li><strong>Tipo de Evento:</strong> {{ tipoEvento }}</li>
-      <li><strong>Alberca:</strong> {{ alberca }}</li>
-      <li><strong>Hora de Inicio:</strong> {{ horaInicio }}</li>
-      <li><strong>Hora de Fin:</strong> {{ horaFin }}</li>
-      <li><strong>Color del Mantel:</strong>
-        <span [style.backgroundColor]="colorMantel"
+      <li><strong>Nombre:</strong> {{ form.value.nombre }} {{ form.value.apellidos }}</li>
+      <li><strong>Correo:</strong> {{ form.value.correo }}</li>
+      <li><strong>Teléfono:</strong> {{ form.value.telefono }}</li>
+      <li><strong>Fecha:</strong> {{ form.value.fecha }}</li>
+      <li><strong>Personas:</strong> {{ form.value.personas }}</li>
+      <li><strong>Tipo de Evento:</strong> {{ form.value.tipoEvento }}</li>
+      <li><strong>Alberca:</strong> {{ form.value.alberca }}</li>
+      <li><strong>Hora de Inicio:</strong> {{ form.value.horaInicio }}</li>
+      <li><strong>Hora de Fin:</strong> {{ form.value.horaFin }}</li>
+      <li>
+        <strong>Color del Mantel:</strong>
+        <span [style.backgroundColor]="form.value.colorMantel"
           style="display:inline-block;width:15px;height:15px;border:1px solid #ccc;margin-left:5px;"></span>
       </li>
-      <li><strong>Extras:</strong> {{ extras.join(', ') || 'Ninguno' }}</li>
+      <li><strong>Extras:</strong> {{ form.value.extras?.join(' ,') || 'Ninguno' }}</li>
     </ul>
   </div>
 </div>
