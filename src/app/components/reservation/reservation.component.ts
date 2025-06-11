@@ -10,11 +10,12 @@ import { DatesService } from '../../services/dates.service';
 import { Dates } from '../../models/dates.interface';
 import { addDoc, collection, collectionData, Firestore } from '@angular/fire/firestore';
 import { DynamicAddComponent } from '../dynamic-add/dynamic-add.component';
+import { TerminosComponent } from '../../terminos/terminos.component';
 
 @Component({
   selector: 'app-reservation',
   standalone: true,
-  imports: [CommonModule, FormsModule, NavBarComponent, FooterComponent, RouterModule, RouterLink, ReactiveFormsModule, DynamicAddComponent],
+  imports: [CommonModule, FormsModule, NavBarComponent, FooterComponent, RouterModule, RouterLink, ReactiveFormsModule, DynamicAddComponent, TerminosComponent],
   templateUrl: './reservation.component.html',
   styleUrls: ['./reservation.component.css']
 })
@@ -49,7 +50,8 @@ export class ReservationComponent implements OnInit {
       horaFin: [''],
       colorMantel: ['', Validators.required],
       extras: [[]],
-      estado: ['Pendiente', Validators.required]
+      estado: ['Pendiente', Validators.required],
+      aceptaTerminos: [false, Validators.requiredTrue]
     });
   }
 
