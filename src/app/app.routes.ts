@@ -15,7 +15,7 @@ import { GalleryComponent } from './components/gallery/gallery.component';
 import { SummaryComponent } from './components/summary/summary.component';
 import { SearchReservationComponent } from './components/search-reservation/search-reservation.component';
 
-import { TerminosComponent } from './terminos/terminos.component';
+import { TerminosComponent } from './components/terminos/terminos.component';
 
 
 export const routes: Routes = [
