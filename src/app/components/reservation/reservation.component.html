@@ -89,8 +89,9 @@
         </label>
       </div>
     
+    
 
-    <button type="submit" [disabled]="form.invalid">
+    <button type="submit" [disabled]="form.invalid" [routerLink]="['/app-summary']" >
       {{ 'Guardar' }}
     </button>
   </form>

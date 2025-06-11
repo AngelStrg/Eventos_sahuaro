@@ -10,7 +10,7 @@ import { DatesService } from '../../services/dates.service';
 import { Dates } from '../../models/dates.interface';
 import { addDoc, collection, collectionData, Firestore } from '@angular/fire/firestore';
 import { DynamicAddComponent } from '../dynamic-add/dynamic-add.component';
-import { TerminosComponent } from '../../terminos/terminos.component';
+import { TerminosComponent } from '../terminos/terminos.component';
 
 @Component({
   selector: 'app-reservation',
@@ -34,6 +34,14 @@ export class ReservationComponent implements OnInit {
   horasExtrasOptions: number[] = [];
 
   horaFinCalculada: string = '';
+nombre: any;
+apellidos: any;
+correo: any;
+telefono: any;
+fecha: any;
+personas: any;
+alberca: any;
+extras: any;
 
   constructor(private firestore: Firestore, private fb: FormBuilder) {
     this.form = this.fb.group({
